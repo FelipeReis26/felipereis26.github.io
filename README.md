@@ -4,8 +4,6 @@ My portfolio: **[felipereis26.github.io](https://felipereis26.github.io)**
 
 IT support engineer in Dublin. I run a busy service desk and build the tools that make it less busy. The site covers my personal projects (with repos and a live app) and case studies of the automation I've built at work.
 
-One HTML file, no framework, no build step. Push to `main` and GitHub Pages redeploys it.
-
 ## Highlights
 
 - [New hire access provisioning tool](https://felipereis26.github.io/#new-hire-tool) - one request becomes ~23 correctly typed Jira tickets, safely
