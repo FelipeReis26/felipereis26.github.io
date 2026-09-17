@@ -180,7 +180,7 @@
     <div class="meta">Confluence, KCS methodology, Jira automation · co-lead, in progress</div>
     <p class="result">Roughly 700 pages inventoried, 100+ reviewed by hand, standards being set.</p>
     <p><strong>Problem:</strong> a roughly 700 page service desk knowledge base with no ownership, no review cycle and years of drift.</p>
-    <p><strong>Doing:</strong> co-driving a KCS aligned overhaul: full inventory, accuracy audit (I personally reviewed over 100 internal pages), a metadata template with named owners, and a proposed 90 day review cycle. I've also written 19 internal guides and runbooks myself, because the fastest way to raise a standard is to publish examples of it.</p>
+    <p><strong>Doing:</strong> co-driving a KCS aligned overhaul: full inventory, accuracy audit (I personally reviewed over 100 internal pages), a metadata template with named owners, and a proposed 90 day review cycle. I've also written 19 internal guides and runbooks myself.</p>
   </div>
 
   <div class="card" id="automation-fleet">
@@ -193,13 +193,13 @@
 
   <h2>Personal projects</h2>
 
-  <div class="card" id="trip-planner">
-    <h3><a class="repo" href="https://github.com/felipereis26/trip-planner">trip-planner</a></h3>
+  <div class="card" id="tripsy">
+    <h3><a class="repo" href="https://github.com/felipereis26/trip-planner">Tripsy</a></h3>
     <div class="meta">Static site + serverless function · HTML, CSS, JavaScript, Vercel</div>
     <img class="shot" src="tripsy-form.jpg" width="560" height="884" loading="lazy" alt="The add-a-trip form, scrapbook style: destination, dates, leave days, cost, and one line on why">
     <p>A trip planning site my partner and I actually use. Each trip is its own page, and the home page computes leave-day totals and moves trips from upcoming to past automatically based on dates, no backend state to forget about.</p>
     <p>The interesting part is the add-a-trip flow: a form posts to a small serverless function that commits a new page straight into the GitHub repo, which triggers auto-deploy. The function uses a fine-grained GitHub token scoped to one repo with contents-only permissions, held as a server-side environment variable so it never reaches the browser. Small project, but built the way I build things at work: least privilege, no secrets in the client, documented so someone else could run it.</p>
-    <p>The live deployment isn't linked here on purpose: it holds our real travel dates, and its write endpoint is scoped for two people, not the public internet. Knowing what not to publish is part of the job.</p>
+    <p>The live deployment isn't linked here on purpose: it holds our real travel dates, and its write endpoint is scoped for two people, not the public internet.</p>
     <div class="chips"><span class="chip">JavaScript</span><span class="chip">Serverless</span><span class="chip">CI/CD</span><span class="chip">Least-privilege tokens</span></div>
   </div>
 
@@ -208,13 +208,12 @@
     <div class="meta">Mobile app · React, Capacitor, iOS build via Codemagic to TestFlight · best opened on a phone</div>
     <img class="shot" src="gild-scan.jpg" width="560" height="616" loading="lazy" alt="GILD's scan screen: upload a payment screenshot and the text is read on the device, nothing sent anywhere">
     <p>A mobile-first budget and bill tracker built in React and wrapped with Capacitor into a real iOS app, delivered through a Codemagic pipeline to TestFlight. Dashboard, transactions, recurring bills, and a scan screen that turns a payment screenshot into a structured transaction to review before saving.</p>
-    <p>One decision worth noticing: all storage lives behind one async module, so swapping localStorage for on-device SQLite later means rewriting the inside of one file and touching zero screens. The repo includes the product and design docs, because writing down the why is half the work.</p>
+    <p>All storage lives behind one async module, so swapping localStorage for on-device SQLite later means rewriting the inside of one file and touching zero screens. The repo includes the product and design docs.</p>
     <div class="chips"><span class="chip">React</span><span class="chip">Capacitor</span><span class="chip">iOS pipeline</span><span class="chip">Architecture docs</span></div>
   </div>
 
   <footer>
-    Felipe Reis · Dublin, Ireland · <a class="repo" href="mailto:Felipe26lpe@gmail.com">Felipe26lpe@gmail.com</a><br>
-    <em>One HTML file, no framework, no build step, which felt appropriate.</em>
+    Felipe Reis · Dublin, Ireland · <a class="repo" href="mailto:Felipe26lpe@gmail.com">Felipe26lpe@gmail.com</a>
   </footer>
 </main>
 </body>
