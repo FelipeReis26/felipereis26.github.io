@@ -13,11 +13,11 @@
 <style>
   :root{
     --bg:#faf8f4; --ink:#1d2530; --muted:#5b6470; --accent:#1f3864; --card:#fffdf9; --line:#e7e2d8; --chip:#f0ece4;
-    --shadow:0 10px 26px -18px rgba(31,56,100,.4);
+    --shadow:0 10px 26px -18px rgba(31,56,100,.4); --danger:#a0342c;
   }
   @media (prefers-color-scheme: dark){
     :root{ --bg:#12161c; --ink:#e8e6e1; --muted:#9aa4b0; --accent:#8fb0e8; --card:#1a2029; --line:#2a313c; --chip:#232b37;
-    --shadow:0 10px 26px -18px rgba(0,0,0,.7); }
+    --shadow:0 10px 26px -18px rgba(0,0,0,.7); --danger:#e8968d; }
   }
   *{box-sizing:border-box}
   html{scrollbar-color:var(--line) transparent}
@@ -70,6 +70,29 @@
   @media (max-width:560px){
     .shot{float:none;display:block;width:100%;max-width:300px;margin:4px auto 14px}
   }
+  .nav{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:.85rem}
+  .nav a{margin-right:16px;color:var(--muted);font-weight:500}
+  .nav a:hover{color:var(--accent)}
+  .arch-row{display:grid;grid-template-columns:64px 1fr auto;gap:14px;padding:11px 2px;border-bottom:1px solid var(--line);align-items:baseline}
+  .arch-row .yr{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
+  .arch-row .nm{font-weight:600;font-size:.95rem}
+  .arch-row .ds{color:var(--muted);font-size:.9rem}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+  .tg{font-size:.72rem;background:var(--chip);border-radius:999px;padding:2px 9px;color:var(--muted);letter-spacing:.03em;white-space:nowrap}
+  @media(max-width:560px){.arch-row{grid-template-columns:48px 1fr}.tags{display:none}}
+  .facts{list-style:none;padding:0;margin:0}
+  .facts li{padding:6px 0 6px 22px;position:relative}
+  .facts li::before{content:"";position:absolute;left:4px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  form.ticket{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;max-width:560px}
+  .ticket label{display:block;font-size:.75rem;font-weight:600;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin:14px 0 6px}
+  .ticket label:first-child{margin-top:0}
+  .ticket input,.ticket select,.ticket textarea{width:100%;font:inherit;font-size:.95rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 12px}
+  .ticket input:focus,.ticket select:focus,.ticket textarea:focus{outline:none;border-color:var(--accent)}
+  .ticket textarea{min-height:110px;resize:vertical}
+  .ticket button{margin-top:16px;font:inherit;font-weight:600;font-size:.95rem;color:var(--bg);background:var(--accent);border:none;border-radius:8px;padding:10px 22px;cursor:pointer}
+  .ticket button:hover{opacity:.9}
+  .ticket .err{display:none;color:var(--danger);font-size:.85rem;margin-top:10px}
+  .ticket .note{color:var(--muted);font-size:.8rem;margin-top:12px}
 </style>
 </head>
 <body>
@@ -83,12 +106,18 @@
       <a href="Felipe-Reis-CV.pdf">CV (PDF)</a>
       <a href="mailto:Felipe26lpe@gmail.com">Email</a>
     </div>
+    <nav class="nav">
+      <a href="#work">Work</a>
+      <a href="#everything">Everything else</a>
+      <a href="#about">About</a>
+      <a href="#contact">Raise a ticket</a>
+    </nav>
   </header>
 
   <h2>About</h2>
   <p>I'm a Service Desk Analyst III at a global sports betting and gaming company, supporting a workforce across the US, UK and Ireland. This past year I resolved around 1,400 tickets at a 98% resolution rate, and along the way I started automating the repetitive parts of the job with AI. That grew into a set of internal tools the desk now uses daily. I hold a BSc in Computing with Distinction, recently completed a UCD Professional Academy Diploma in Cybersecurity, and I'm fluent in English and Portuguese.</p>
 
-  <h2>Work case studies</h2>
+  <h2 id="work">Work case studies</h2>
   <p class="note">These are internal tools, so no links or screenshots; the diagrams use the same numbers described in the text.</p>
 
   <div class="card" id="new-hire-tool">
@@ -99,34 +128,34 @@
       <defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="currentColor" class="ac" style="fill:var(--accent)"/></marker></defs>
       <rect class="box" x="6" y="22" width="130" height="44" rx="8"/>
       <text x="71" y="41" text-anchor="middle" font-size="12" class="dk" font-weight="600">1 new hire</text>
-      <text x="71" y="57" text-anchor="middle" font-size="11">request</text>
+      <text x="71" y="57" text-anchor="middle" font-size="11.5">request</text>
       <path class="arrow" d="M140 44 H222" marker-end="url(#ah)"/>
       <rect class="box" x="228" y="12" width="184" height="64" rx="8"/>
       <text x="320" y="34" text-anchor="middle" font-size="12" class="dk" font-weight="600">routing matrix</text>
-      <text x="320" y="50" text-anchor="middle" font-size="11">rules from 1,600 tickets</text>
-      <text x="320" y="66" text-anchor="middle" font-size="11">mock run &#8594; typed go-live</text>
+      <text x="320" y="50" text-anchor="middle" font-size="11.5">rules from 1,600 tickets</text>
+      <text x="320" y="66" text-anchor="middle" font-size="11.5">mock run &#8594; typed go-live</text>
       <path class="arrow" d="M416 44 H498" marker-end="url(#ah)"/>
       <rect class="box" x="504" y="22" width="130" height="44" rx="8"/>
       <text x="569" y="41" text-anchor="middle" font-size="12" class="dk" font-weight="600">~23 tickets</text>
-      <text x="569" y="57" text-anchor="middle" font-size="11">typed &amp; routed in Jira</text>
-      <text x="320" y="96" text-anchor="middle" font-size="10.5">every write journalled · resumable · schema checked against live Jira first</text>
+      <text x="569" y="57" text-anchor="middle" font-size="11.5">typed &amp; routed in Jira</text>
+      <text x="320" y="96" text-anchor="middle" font-size="11.5">every write journalled · resumable · schema checked against live Jira first</text>
     </svg>
     <svg class="diagram diagram-m" viewBox="0 0 340 240" role="img" aria-label="Flow: one new hire request, through a routing matrix built from 1,600 historical tickets and safety gates, becomes around 23 Jira tickets">
       <defs><marker id="ahm" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" style="fill:var(--accent)"/></marker></defs>
       <rect class="box" x="70" y="6" width="200" height="44" rx="8"/>
       <text x="170" y="24" text-anchor="middle" font-size="12" class="dk" font-weight="600">1 new hire</text>
-      <text x="170" y="40" text-anchor="middle" font-size="11">request</text>
+      <text x="170" y="40" text-anchor="middle" font-size="11.5">request</text>
       <path class="arrow" d="M170 52 V66" marker-end="url(#ahm)"/>
       <rect class="box" x="40" y="70" width="260" height="64" rx="8"/>
       <text x="170" y="92" text-anchor="middle" font-size="12" class="dk" font-weight="600">routing matrix</text>
-      <text x="170" y="108" text-anchor="middle" font-size="11">rules from 1,600 tickets</text>
-      <text x="170" y="124" text-anchor="middle" font-size="11">mock run &#8594; typed go-live</text>
+      <text x="170" y="108" text-anchor="middle" font-size="11.5">rules from 1,600 tickets</text>
+      <text x="170" y="124" text-anchor="middle" font-size="11.5">mock run &#8594; typed go-live</text>
       <path class="arrow" d="M170 136 V150" marker-end="url(#ahm)"/>
       <rect class="box" x="70" y="154" width="200" height="44" rx="8"/>
       <text x="170" y="172" text-anchor="middle" font-size="12" class="dk" font-weight="600">~23 tickets</text>
-      <text x="170" y="188" text-anchor="middle" font-size="11">typed &amp; routed in Jira</text>
-      <text x="170" y="216" text-anchor="middle" font-size="10.5">every write journalled &#183; resumable</text>
-      <text x="170" y="232" text-anchor="middle" font-size="10.5">schema checked against live Jira first</text>
+      <text x="170" y="188" text-anchor="middle" font-size="11.5">typed &amp; routed in Jira</text>
+      <text x="170" y="216" text-anchor="middle" font-size="11.5">every write journalled &#183; resumable</text>
+      <text x="170" y="232" text-anchor="middle" font-size="11.5">schema checked against live Jira first</text>
     </svg>
     <p><strong>Problem:</strong> every new hire needed around 23 correctly typed access tickets raised by hand, slow, error prone, and different every time depending on role.</p>
     <p><strong>Built:</strong> a tool that turns one new hire request into the complete batch. The routing rules came from reviewing roughly 1,600 historical tickets to establish what each role actually needs and who approves it.</p>
@@ -147,18 +176,18 @@
         <circle cx="460" cy="62" r="5" style="fill:var(--accent)"/><circle cx="500" cy="62" r="5" style="fill:var(--accent)"/>
         <rect x="443" y="46" width="76" height="32" rx="8" style="fill:none;stroke:var(--accent);stroke-width:1.2;stroke-dasharray:3 3"/>
       </g>
-      <text x="636" y="30" font-size="10.5" text-anchor="end">incidents matched</text>
-      <text x="636" y="66" font-size="10.5" text-anchor="end" style="fill:var(--accent)" font-weight="600">extra catches</text>
+      <text x="636" y="30" font-size="11.5" text-anchor="end">incidents matched</text>
+      <text x="636" y="66" font-size="11.5" text-anchor="end" style="fill:var(--accent)" font-weight="600">extra catches</text>
     </svg>
     <svg class="diagram diagram-m" viewBox="0 0 340 150" role="img" aria-label="Side by side trial: every incident the paid service caught was matched, plus extra catches the paid service missed">
       <text x="6" y="18" font-size="11.5" class="dk" font-weight="600">paid service</text>
       <circle cx="14" cy="38" r="5" style="fill:var(--muted)"/><circle cx="48" cy="38" r="5" style="fill:var(--muted)"/><circle cx="82" cy="38" r="5" style="fill:var(--muted)"/><circle cx="116" cy="38" r="5" style="fill:var(--muted)"/><circle cx="150" cy="38" r="5" style="fill:var(--muted)"/><circle cx="184" cy="38" r="5" style="fill:var(--muted)"/>
-      <text x="210" y="42" font-size="10.5">incidents matched</text>
+      <text x="210" y="42" font-size="11.5">incidents matched</text>
       <text x="6" y="80" font-size="11.5" class="dk" font-weight="600">this dashboard</text>
       <circle cx="14" cy="100" r="5" style="fill:var(--accent)"/><circle cx="48" cy="100" r="5" style="fill:var(--accent)"/><circle cx="82" cy="100" r="5" style="fill:var(--accent)"/><circle cx="116" cy="100" r="5" style="fill:var(--accent)"/><circle cx="150" cy="100" r="5" style="fill:var(--accent)"/><circle cx="184" cy="100" r="5" style="fill:var(--accent)"/>
       <circle cx="230" cy="100" r="5" style="fill:var(--accent)"/><circle cx="264" cy="100" r="5" style="fill:var(--accent)"/>
       <rect x="213" y="84" width="68" height="32" rx="8" style="fill:none;stroke:var(--accent);stroke-width:1.2;stroke-dasharray:3 3"/>
-      <text x="213" y="136" font-size="10.5" style="fill:var(--accent)" font-weight="600">extra catches</text>
+      <text x="213" y="136" font-size="11.5" style="fill:var(--accent)" font-weight="600">extra catches</text>
     </svg>
     <p><strong>Problem:</strong> the team paid for a third party service to watch vendor status pages, and nobody knew if it was actually good.</p>
     <p><strong>Built:</strong> a dashboard monitoring 72 vendor status pages with Slack alerts, suppression policies and alert history.</p>
@@ -212,9 +241,67 @@
     <div class="chips"><span class="chip">React</span><span class="chip">Capacitor</span><span class="chip">iOS pipeline</span><span class="chip">Architecture docs</span></div>
   </div>
 
+
+  <h2 id="everything">Everything else</h2>
+  <p class="note">The case studies above are the deep dives. This is the rest, one line each.</p>
+<div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">TicketFixer</span> <span class="ds">— a ticket quality workbench for the desk: repairs types and fields on Jira tickets and matches each one against 7,565 resolved cases for precedent. Twelve plus versioned releases, distributed to the team through a plugin catalogue.</span></span><span class="tags"><span class="tg">AI</span><span class="tg">ITSM</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Access request triage assistant</span> <span class="ds">— reads incoming access tickets, checks them against the documented access guides and drafts the correct redirect or approval route.</span></span><span class="tags"><span class="tg">AI</span><span class="tg">identity</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Live team metrics dashboard</span> <span class="ds">— resolved totals, per analyst averages and daily targets, fed by live Jira queries.</span></span><span class="tags"><span class="tg">dashboards</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">NATS role recommender</span> <span class="ds">— recommends the correct production access role from a ticket’s own fields, against a maintained routing matrix.</span></span><span class="tags"><span class="tg">identity</span><span class="tg">AI</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Weekly handover QA</span> <span class="ds">— an automated quality check on the P1 incident handover doc, with reminders sent to the right call leaders.</span></span><span class="tags"><span class="tg">operations</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Post resolution replies check</span> <span class="ds">— catches customer replies that land after a ticket has been resolved, so nobody gets left answered-but-ignored.</span></span><span class="tags"><span class="tg">operations</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">New hire location screener</span> <span class="ds">— a weekly sweep of every incoming hire to route laptop shipping correctly across Ireland, NI and the UK.</span></span><span class="tags"><span class="tg">onboarding</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Priority hygiene sweep</span> <span class="ds">— finds resolved tickets that never got a priority and fixes them with reasoning attached.</span></span><span class="tags"><span class="tg">operations</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Mentoring programme</span> <span class="ds">— structured first weeks for a new analyst on the London desk: scored quizzes, a ticket tracker, and QA scoring adapted from the desk’s official scorecard.</span></span><span class="tags"><span class="tg">people</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Training template redesign</span> <span class="ds">— the new hire training report rebuilt with HR course tracking, now the standard.</span></span><span class="tags"><span class="tg">onboarding</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Onboarding gap analysis</span> <span class="ds">— compared the Denver and London new hire training programmes and standardised the differences.</span></span><span class="tags"><span class="tg">onboarding</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Leeds office expansion audit</span> <span class="ds">— onsite verification of a twelve desk build out: meeting rooms, booking tablets, displays, power.</span></span><span class="tags"><span class="tg">office IT</span></span></div>
+  <div class="arch-row"><span class="yr">2025–26</span><span><span class="nm">Internal guides and runbooks</span> <span class="ds">— 19 Confluence pages, from office runbooks and WiFi guides to the desk’s guide for moving Claude to a new Mac.</span></span><span class="tags"><span class="tg">documentation</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">GCP 2 step verification prep</span> <span class="ds">— readied the desk for a mandatory Google Cloud security rollout ahead of its deadline.</span></span><span class="tags"><span class="tg">security</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Executive laptop migrations</span> <span class="ds">— coordinated senior staff device migrations through their assistants, zero disruption.</span></span><span class="tags"><span class="tg">operations</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Diploma in Cybersecurity</span> <span class="ds">— UCD Professional Academy, completed alongside the full time role. Results due September 2026.</span></span><span class="tags"><span class="tg">study</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">This site</span> <span class="ds">— one hand written HTML file on GitHub Pages: the case studies, the diagrams, the CV and this form, no framework and no build step.</span></span><span class="tags"><span class="tg">web</span></span></div>
+</div>
+
+  <h2 id="about">About</h2>
+  <p>Away from the queue:</p>
+  <ul class="facts">
+    <li>Born the same year the PlayStation 2 came out, and grew up on it.</li>
+    <li>Native Portuguese speaker, raised in Dublin.</li>
+    <li>I plan trips with my partner thoroughly enough that I built an app for it.</li>
+    <li>Formula 1 on Sundays, fantasy Premier League all season, a crossword most days.</li>
+  </ul>
+
+  <h2 id="contact">Raise a ticket</h2>
+  <p class="note">Messages here open as an email in your own mail app. Nothing is stored on this site.</p>
+  <form class="ticket" id="ticketForm">
+    <label for="tSubject">Subject</label>
+    <input id="tSubject" type="text" placeholder="What is it about?">
+    <label for="tPriority">Priority</label>
+    <select id="tPriority"><option>Low</option><option selected>Medium</option><option>High</option></select>
+    <label for="tBody">Description</label>
+    <textarea id="tBody" placeholder="The detail."></textarea>
+    <button type="submit">Raise ticket</button>
+    <p class="err" id="tErr">Add a subject and a description first.</p>
+    <p class="note">Current SLA: usually same day.</p>
+  </form>
+
   <footer>
     Felipe Reis · Dublin, Ireland · <a class="repo" href="mailto:Felipe26lpe@gmail.com">Felipe26lpe@gmail.com</a>
   </footer>
 </main>
+<script>
+document.getElementById('ticketForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var sub = document.getElementById('tSubject').value.trim();
+  var pri = document.getElementById('tPriority').value;
+  var body = document.getElementById('tBody').value.trim();
+  var err = document.getElementById('tErr');
+  if(!sub || !body){ err.style.display = 'block'; return; }
+  err.style.display = 'none';
+  location.href = 'mailto:Felipe26lpe@gmail.com?subject=' + encodeURIComponent('[' + pri + '] ' + sub) + '&body=' + encodeURIComponent(body);
+});
+</script>
 </body>
 </html>
