@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Felipe Reis — IT support engineer who automates</title>
+<meta name="description" content="Felipe Reis, Dublin. IT support and service desk engineer building automation with AI. Case studies and projects.">
+<style>
+  :root{
+    --bg:#faf9f7; --ink:#1c2430; --muted:#5c6672; --accent:#1f3864; --card:#ffffff; --line:#e5e1da; --chip:#eef1f6;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#12161c; --ink:#e8e6e1; --muted:#9aa4b0; --accent:#8fb0e8; --card:#1a2029; --line:#2a313c; --chip:#232b37; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  main{max-width:760px;margin:0 auto;padding:48px 22px 80px}
+  header h1{font-size:2rem;margin:0 0 4px}
+  header p.tag{color:var(--muted);margin:0 0 14px}
+  .links a{color:var(--accent);text-decoration:none;margin-right:18px;font-weight:600}
+  .links a:hover{text-decoration:underline}
+  h2{font-size:1.15rem;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:6px;margin:44px 0 18px;letter-spacing:.02em;text-transform:uppercase}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:16px}
+  .card h3{margin:0 0 2px;font-size:1.05rem}
+  .card .meta{color:var(--muted);font-size:.85rem;margin-bottom:10px}
+  .card p{margin:0 0 10px}
+  .card p:last-child{margin-bottom:0}
+  .chips{margin-top:12px}
+  .chip{display:inline-block;background:var(--chip);border-radius:999px;padding:2px 11px;font-size:.78rem;color:var(--muted);margin:0 6px 6px 0}
+  .repo{font-weight:600;color:var(--accent);text-decoration:none}
+  .repo:hover{text-decoration:underline}
+  .note{color:var(--muted);font-size:.9rem;font-style:normal;margin:6px 0 18px}
+  footer{margin-top:56px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);padding-top:18px}
+  strong{font-weight:650}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Felipe Reis</h1>
+    <p class="tag">IT support engineer in Dublin. I run a busy service desk and build the tools that make it less busy.</p>
+    <div class="links">
+      <a href="https://github.com/felipereis26">GitHub</a>
+      <a href="https://www.linkedin.com/in/feliperei5/">LinkedIn</a>
+      <a href="mailto:Felipe26lpe@gmail.com">Email</a>
+    </div>
+  </header>
+
+  <h2>About</h2>
+  <p>I'm a Service Desk Analyst III at a global sports betting and gaming company, supporting a workforce across the US, UK and Ireland. This past year I resolved around 1,400 tickets at a 98% resolution rate, and along the way I started automating the repetitive parts of the job with AI. That grew into a set of internal tools the desk now uses daily. I hold a BSc in Computing with Distinction, recently completed a UCD Professional Academy Diploma in Cybersecurity, and I'm fluent in English and Portuguese.</p>
+  <p class="note">The work case studies below describe internal tools, so there are no links or screenshots. The numbers are real and I'm happy to talk through any of them in detail.</p>
+
+  <h2>Personal projects</h2>
+
+  <div class="card">
+    <h3><a class="repo" href="https://github.com/felipereis26/trip-planner">trip-planner</a></h3>
+    <div class="meta">Static site + serverless function · HTML, CSS, JavaScript, Vercel</div>
+    <p>A trip planning site my partner and I actually use. Each trip is its own page, and the home page computes leave-day totals and moves trips from upcoming to past automatically based on dates, no backend state to forget about.</p>
+    <p>The interesting part is the add-a-trip flow: a form posts to a small serverless function that commits a new page straight into the GitHub repo, which triggers auto-deploy. The function uses a fine-grained GitHub token scoped to one repo with contents-only permissions, held as a server-side environment variable so it never reaches the browser. Small project, but built the way I build things at work: least privilege, no secrets in the client, documented so someone else could run it.</p>
+    <div class="chips"><span class="chip">JavaScript</span><span class="chip">Serverless</span><span class="chip">CI/CD</span><span class="chip">Least-privilege tokens</span></div>
+  </div>
+
+  <div class="card">
+    <h3><a class="repo" href="https://github.com/felipereis26/gild-finance-dev">GILD finance tracker</a></h3>
+    <div class="meta">Mobile app · React, Capacitor, iOS build via Codemagic to TestFlight</div>
+    <p>A mobile-first budget and bill tracker built in React and wrapped with Capacitor into a real iOS app, delivered through a Codemagic pipeline to TestFlight. Dashboard, transactions, recurring bills, and a screenshot-scanning screen designed to hand an image to an AI model and get structured data back.</p>
+    <p>The design decision I'd defend in an interview: all storage lives behind one async module, so swapping localStorage for on-device SQLite later means rewriting the inside of one file and touching zero screens. The repo includes the product and design docs, because writing down the why is half the work.</p>
+    <div class="chips"><span class="chip">React</span><span class="chip">Capacitor</span><span class="chip">iOS pipeline</span><span class="chip">Architecture docs</span></div>
+  </div>
+
+  <h2>Work case studies</h2>
+
+  <div class="card">
+    <h3>New hire access provisioning tool</h3>
+    <div class="meta">Google Apps Script, JavaScript, Jira APIs, built with Anthropic Claude · in production since July 2026</div>
+    <p><strong>Problem:</strong> every new hire needed around 23 correctly typed access tickets raised by hand, slow, error prone, and different every time depending on role.</p>
+    <p><strong>Built:</strong> a tool that turns one new hire request into the complete batch. The routing rules came from reviewing roughly 1,600 historical tickets to establish what each role actually needs and who approves it.</p>
+    <p><strong>Safety:</strong> read only test mode by default, multiple typed confirmations before anything writes to production, a live schema check against Jira before every run, and a crash resumable journal so an interrupted batch never creates duplicates.</p>
+    <p><strong>Outcome:</strong> vetted with subject matter experts, signed off for production, usable by any tech on the desk.</p>
+  </div>
+
+  <div class="card">
+    <h3>Vendor status monitoring dashboard</h3>
+    <div class="meta">Google Apps Script web app, Slack alerting · replaced a paid monitoring service</div>
+    <p><strong>Problem:</strong> the team paid for a third party service to watch vendor status pages, and nobody knew if it was actually good.</p>
+    <p><strong>Built:</strong> a dashboard monitoring 72 vendor status pages with Slack alerts, suppression policies and alert history.</p>
+    <p><strong>Proof:</strong> instead of switching on faith, I ran a multi week side by side trial against the paid tool with a daily automated comparison, and the review tracked what my dashboard missed just as carefully as what it caught, because knowing the limitations mattered more than proving it worked. It matched the paid tool's incident coverage and caught several outages it missed, including an 8 hour Tier 1 vendor incident.</p>
+    <p><strong>Outcome:</strong> the subscription (around $4,000 a year) is set to be cancelled.</p>
+  </div>
+
+  <div class="card">
+    <h3>Service desk automation hub</h3>
+    <div class="meta">Google Apps Script web app, JavaScript/HTML/CSS, Jira and Slack REST APIs, GitHub</div>
+    <p><strong>Problem:</strong> the desk's daily rhythm, morning triage, ticket quality checks, team metrics, lived in a dozen manual places.</p>
+    <p><strong>Built:</strong> an internal web app that brings it together: a morning triage queue, ticket QA, and live dashboards with team resolution metrics. Dozens of versioned releases, code on GitHub behind protected branches with a build and verification pipeline.</p>
+    <p><strong>Rollout:</strong> staged, with defined acceptance criteria, structured tester feedback and post rollout follow up, and a launch presented at a company offsite.</p>
+  </div>
+
+  <div class="card">
+    <h3>Knowledge base overhaul</h3>
+    <div class="meta">Confluence, KCS methodology, Jira automation · co-lead, in progress</div>
+    <p><strong>Problem:</strong> a roughly 700 page service desk knowledge base with no ownership, no review cycle and years of drift.</p>
+    <p><strong>Doing:</strong> co-driving a KCS aligned overhaul: full inventory, accuracy audit (I personally reviewed over 100 internal pages), a metadata template with named owners, and a proposed 90 day review cycle. I've also written 19 internal guides and runbooks myself, because the fastest way to raise a standard is to publish examples of it.</p>
+  </div>
+
+  <div class="card">
+    <h3>Scheduled automation fleet</h3>
+    <div class="meta">Anthropic Claude, AI agent workflows, Jira/Slack/Confluence APIs</div>
+    <p><strong>Problem:</strong> the small quality checks that keep a desk healthy, handover accuracy, customer replies landing after a ticket is resolved, missing priorities, only happen when someone remembers.</p>
+    <p><strong>Built:</strong> around 14 scheduled automations that remember instead: a weekly handover quality check with reminders to the right people, a post resolution replies sweep, priority hygiene, a matcher that checks new tickets against 7,565 resolved ones to surface precedents, and more. Two of them were packaged and shared with the wider desk through a plugin catalogue set up with our Platform Engineering team.</p>
+  </div>
+
+  <footer>
+    Felipe Reis · Dublin, Ireland · <a class="repo" href="mailto:Felipe26lpe@gmail.com">Felipe26lpe@gmail.com</a><br>
+    One HTML file, no framework, no build step, which felt appropriate.
+  </footer>
+</main>
+</body>
+</html>
