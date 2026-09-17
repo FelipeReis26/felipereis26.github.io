@@ -58,6 +58,10 @@
   .diagram .ac{fill:var(--accent)}
   .diagram .box{fill:none;stroke:var(--line);stroke-width:1.2;rx:8}
   .diagram .arrow{stroke:var(--accent);stroke-width:1.5;fill:none}
+  @media (max-width:560px){
+    .diagram{min-width:520px}
+    .card{overflow-x:auto}
+  }
 </style>
 </head>
 <body>
@@ -118,8 +122,8 @@
         <circle cx="460" cy="62" r="5" style="fill:var(--accent)"/><circle cx="500" cy="62" r="5" style="fill:var(--accent)"/>
         <rect x="443" y="46" width="76" height="32" rx="8" style="fill:none;stroke:var(--accent);stroke-width:1.2;stroke-dasharray:3 3"/>
       </g>
-      <text x="560" y="30" font-size="10.5">incidents matched</text>
-      <text x="560" y="66" font-size="10.5" style="fill:var(--accent)" font-weight="600">extra catches</text>
+      <text x="636" y="30" font-size="10.5" text-anchor="end">incidents matched</text>
+      <text x="636" y="66" font-size="10.5" text-anchor="end" style="fill:var(--accent)" font-weight="600">extra catches</text>
     </svg>
     <p><strong>Problem:</strong> the team paid for a third party service to watch vendor status pages, and nobody knew if it was actually good.</p>
     <p><strong>Built:</strong> a dashboard monitoring 72 vendor status pages with Slack alerts, suppression policies and alert history.</p>
