@@ -123,7 +123,7 @@
   <div class="card" id="new-hire-tool">
     <h3>New hire access provisioning tool</h3>
     <div class="meta">Google Apps Script, JavaScript, Jira APIs, built with Anthropic Claude</div>
-    <p class="result">One request in, around 23 correctly typed tickets out. In production since July 2026.</p>
+    <p class="result">Turns one new hire request into around 23 correctly typed Jira tickets. In production since July 2026.</p>
     <svg class="diagram diagram-d" viewBox="0 0 640 104" role="img" aria-label="Flow: one new hire request, through a routing matrix built from 1,600 historical tickets and safety gates, becomes around 23 Jira tickets">
       <defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="currentColor" class="ac" style="fill:var(--accent)"/></marker></defs>
       <rect class="box" x="6" y="22" width="130" height="44" rx="8"/>
@@ -191,17 +191,17 @@
     </svg>
     <p><strong>Problem:</strong> the team paid for a third party service to watch vendor status pages, and nobody knew if it was actually good.</p>
     <p><strong>Built:</strong> a dashboard monitoring 72 vendor status pages with Slack alerts, suppression policies and alert history.</p>
-    <p><strong>Proof:</strong> instead of switching on faith, I ran a multi week side by side trial against the paid tool with a daily automated comparison, and the review tracked what my dashboard missed just as carefully as what it caught, because knowing the limitations mattered more than proving it worked. It matched the paid tool's incident coverage and caught several outages it missed, including an 8 hour Tier 1 vendor incident.</p>
+    <p><strong>Proof:</strong> instead of switching on faith, I ran a multi week side by side trial against the paid tool, with an automated comparison every day. The review tracked what my dashboard missed just as carefully as what it caught. It matched the paid tool's incident coverage and caught several outages it missed, including an 8 hour Tier 1 vendor incident.</p>
     <p><strong>Outcome:</strong> the subscription (around $4,000 a year) is set to be cancelled.</p>
   </div>
 
   <div class="card" id="automation-hub">
     <h3>Service desk automation hub</h3>
     <div class="meta">Google Apps Script web app, JavaScript/HTML/CSS, Jira and Slack REST APIs, GitHub</div>
-    <p class="result">The desk’s day in one app. Dozens of versioned releases, launched at a company offsite.</p>
+    <p class="result">The desk’s morning triage, ticket QA and team numbers in one app. Dozens of versioned releases.</p>
     <p><strong>Problem:</strong> the desk's daily rhythm, morning triage, ticket quality checks, team metrics, lived in a dozen manual places.</p>
     <p><strong>Built:</strong> an internal web app that brings it together: a morning triage queue, ticket QA, and live dashboards with team resolution metrics. Dozens of versioned releases, code on GitHub behind protected branches with a build and verification pipeline.</p>
-    <p><strong>Rollout:</strong> staged, with defined acceptance criteria, structured tester feedback and post rollout follow up, and a launch presented at a company offsite.</p>
+    <p><strong>Rollout:</strong> staged. A few techs had to use it on real working days before it went any wider, I worked through their feedback as it came in, and I presented it to the team at a company offsite.</p>
   </div>
 
   <div class="card" id="knowledge-base">
@@ -209,7 +209,7 @@
     <div class="meta">Confluence, KCS methodology, Jira automation · co-lead, in progress</div>
     <p class="result">Roughly 700 pages inventoried, 100+ reviewed by hand, standards being set.</p>
     <p><strong>Problem:</strong> a roughly 700 page service desk knowledge base with no ownership, no review cycle and years of drift.</p>
-    <p><strong>Doing:</strong> co-driving a KCS aligned overhaul: full inventory, accuracy audit (I personally reviewed over 100 internal pages), a metadata template with named owners, and a proposed 90 day review cycle. I've also written 19 internal guides and runbooks myself.</p>
+    <p><strong>Doing:</strong> running a KCS aligned overhaul with a colleague: full inventory, accuracy audit (I personally reviewed over 100 internal pages), a metadata template with named owners, and a proposed 90 day review cycle. I've also written 19 internal guides and runbooks myself.</p>
   </div>
 
   <div class="card" id="automation-fleet">
@@ -217,7 +217,7 @@
     <div class="meta">Anthropic Claude, AI agent workflows, Jira/Slack/Confluence APIs</div>
     <p class="result">Around 14 checks that run whether anyone remembers them or not.</p>
     <p><strong>Problem:</strong> the small quality checks that keep a desk healthy, handover accuracy, customer replies landing after a ticket is resolved, missing priorities, only happen when someone remembers.</p>
-    <p><strong>Built:</strong> around 14 scheduled automations that remember instead: a weekly handover quality check with reminders to the right people, a post resolution replies sweep, priority hygiene, a matcher that checks new tickets against 7,565 resolved ones to surface precedents, and more. Two of them were packaged and shared with the wider desk through a plugin catalogue set up with our Platform Engineering team.</p>
+    <p><strong>Built:</strong> around 14 scheduled automations that remember instead: a weekly handover quality check with reminders to the right people, a post resolution replies sweep, a sweep for missing priorities, a matcher that checks new tickets against 7,565 resolved ones to surface precedents, and more. Two of them were packaged and shared with the wider desk through a plugin catalogue set up with our Platform Engineering team.</p>
   </div>
 
   <h2>Personal projects</h2>
@@ -227,7 +227,7 @@
     <div class="meta">Static site + serverless function · HTML, CSS, JavaScript, Vercel</div>
     <img class="shot" src="tripsy-form.jpg" width="560" height="884" loading="lazy" alt="The add-a-trip form, scrapbook style: destination, dates, leave days, cost, and one line on why">
     <p>A trip planning site my partner and I actually use. Each trip is its own page, and the home page computes leave-day totals and moves trips from upcoming to past automatically based on dates, no backend state to forget about.</p>
-    <p>The interesting part is the add-a-trip flow: a form posts to a small serverless function that commits a new page straight into the GitHub repo, which triggers auto-deploy. The function uses a fine-grained GitHub token scoped to one repo with contents-only permissions, held as a server-side environment variable so it never reaches the browser. Small project, but built the way I build things at work: least privilege, no secrets in the client, documented so someone else could run it.</p>
+    <p>The interesting part is the add-a-trip flow: a form posts to a small serverless function that commits a new page straight into the GitHub repo, which triggers auto-deploy. The function uses a fine-grained GitHub token scoped to one repo with contents-only permissions, held as a server-side environment variable so it never reaches the browser. It's a small project, but the README covers setup end to end, so someone else could run it without me.</p>
     <p>The site holds our real travel dates, so the deployment is gated behind a shared password: a small Vercel middleware enforces HTTP Basic Auth on every path before anything is served. That's why there's no live link here.</p>
     <div class="chips"><span class="chip">JavaScript</span><span class="chip">Serverless</span><span class="chip">Auth middleware</span><span class="chip">Least-privilege tokens</span></div>
   </div>
