@@ -58,9 +58,10 @@
   .diagram .ac{fill:var(--accent)}
   .diagram .box{fill:none;stroke:var(--line);stroke-width:1.2;rx:8}
   .diagram .arrow{stroke:var(--accent);stroke-width:1.5;fill:none}
+  .diagram-m{display:none}
   @media (max-width:560px){
-    .diagram{min-width:520px}
-    .card{overflow-x:auto}
+    .diagram-d{display:none}
+    .diagram-m{display:block}
   }
   .shot{float:right;width:min(230px,42%);margin:4px 0 12px 18px;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
   .chips{clear:both}
@@ -92,7 +93,7 @@
     <h3>New hire access provisioning tool</h3>
     <div class="meta">Google Apps Script, JavaScript, Jira APIs, built with Anthropic Claude</div>
     <p class="result">One request in, around 23 correctly typed tickets out. In production since July 2026.</p>
-    <svg class="diagram" viewBox="0 0 640 104" role="img" aria-label="Flow: one new hire request, through a routing matrix built from 1,600 historical tickets and safety gates, becomes around 23 Jira tickets">
+    <svg class="diagram diagram-d" viewBox="0 0 640 104" role="img" aria-label="Flow: one new hire request, through a routing matrix built from 1,600 historical tickets and safety gates, becomes around 23 Jira tickets">
       <defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="currentColor" class="ac" style="fill:var(--accent)"/></marker></defs>
       <rect class="box" x="6" y="22" width="130" height="44" rx="8"/>
       <text x="71" y="41" text-anchor="middle" font-size="12" class="dk" font-weight="600">1 new hire</text>
@@ -108,6 +109,23 @@
       <text x="569" y="57" text-anchor="middle" font-size="11">typed &amp; routed in Jira</text>
       <text x="320" y="96" text-anchor="middle" font-size="10.5">every write journalled · resumable · schema checked against live Jira first</text>
     </svg>
+    <svg class="diagram diagram-m" viewBox="0 0 340 240" role="img" aria-label="Flow: one new hire request, through a routing matrix built from 1,600 historical tickets and safety gates, becomes around 23 Jira tickets">
+      <defs><marker id="ahm" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" style="fill:var(--accent)"/></marker></defs>
+      <rect class="box" x="70" y="6" width="200" height="44" rx="8"/>
+      <text x="170" y="24" text-anchor="middle" font-size="12" class="dk" font-weight="600">1 new hire</text>
+      <text x="170" y="40" text-anchor="middle" font-size="11">request</text>
+      <path class="arrow" d="M170 52 V66" marker-end="url(#ahm)"/>
+      <rect class="box" x="40" y="70" width="260" height="64" rx="8"/>
+      <text x="170" y="92" text-anchor="middle" font-size="12" class="dk" font-weight="600">routing matrix</text>
+      <text x="170" y="108" text-anchor="middle" font-size="11">rules from 1,600 tickets</text>
+      <text x="170" y="124" text-anchor="middle" font-size="11">mock run &#8594; typed go-live</text>
+      <path class="arrow" d="M170 136 V150" marker-end="url(#ahm)"/>
+      <rect class="box" x="70" y="154" width="200" height="44" rx="8"/>
+      <text x="170" y="172" text-anchor="middle" font-size="12" class="dk" font-weight="600">~23 tickets</text>
+      <text x="170" y="188" text-anchor="middle" font-size="11">typed &amp; routed in Jira</text>
+      <text x="170" y="216" text-anchor="middle" font-size="10.5">every write journalled &#183; resumable</text>
+      <text x="170" y="232" text-anchor="middle" font-size="10.5">schema checked against live Jira first</text>
+    </svg>
     <p><strong>Problem:</strong> every new hire needed around 23 correctly typed access tickets raised by hand, slow, error prone, and different every time depending on role.</p>
     <p><strong>Built:</strong> a tool that turns one new hire request into the complete batch. The routing rules came from reviewing roughly 1,600 historical tickets to establish what each role actually needs and who approves it.</p>
     <p><strong>Safety:</strong> read only test mode by default, multiple typed confirmations before anything writes to production, a live schema check against Jira before every run, and a crash resumable journal so an interrupted batch never creates duplicates.</p>
@@ -118,7 +136,7 @@
     <h3>Vendor status monitoring dashboard</h3>
     <div class="meta">Google Apps Script web app, Slack alerting</div>
     <p class="result">Matched a paid service and caught outages it missed. Around $4,000 a year set to be saved.</p>
-    <svg class="diagram" viewBox="0 0 640 92" role="img" aria-label="Side by side trial: every incident the paid service caught was matched, plus extra catches the paid service missed">
+    <svg class="diagram diagram-d" viewBox="0 0 640 92" role="img" aria-label="Side by side trial: every incident the paid service caught was matched, plus extra catches the paid service missed">
       <text x="6" y="30" font-size="11.5" class="dk" font-weight="600">paid service</text>
       <text x="6" y="66" font-size="11.5" class="dk" font-weight="600">this dashboard</text>
       <g>
@@ -129,6 +147,16 @@
       </g>
       <text x="636" y="30" font-size="10.5" text-anchor="end">incidents matched</text>
       <text x="636" y="66" font-size="10.5" text-anchor="end" style="fill:var(--accent)" font-weight="600">extra catches</text>
+    </svg>
+    <svg class="diagram diagram-m" viewBox="0 0 340 150" role="img" aria-label="Side by side trial: every incident the paid service caught was matched, plus extra catches the paid service missed">
+      <text x="6" y="18" font-size="11.5" class="dk" font-weight="600">paid service</text>
+      <circle cx="14" cy="38" r="5" style="fill:var(--muted)"/><circle cx="48" cy="38" r="5" style="fill:var(--muted)"/><circle cx="82" cy="38" r="5" style="fill:var(--muted)"/><circle cx="116" cy="38" r="5" style="fill:var(--muted)"/><circle cx="150" cy="38" r="5" style="fill:var(--muted)"/><circle cx="184" cy="38" r="5" style="fill:var(--muted)"/>
+      <text x="210" y="42" font-size="10.5">incidents matched</text>
+      <text x="6" y="80" font-size="11.5" class="dk" font-weight="600">this dashboard</text>
+      <circle cx="14" cy="100" r="5" style="fill:var(--accent)"/><circle cx="48" cy="100" r="5" style="fill:var(--accent)"/><circle cx="82" cy="100" r="5" style="fill:var(--accent)"/><circle cx="116" cy="100" r="5" style="fill:var(--accent)"/><circle cx="150" cy="100" r="5" style="fill:var(--accent)"/><circle cx="184" cy="100" r="5" style="fill:var(--accent)"/>
+      <circle cx="230" cy="100" r="5" style="fill:var(--accent)"/><circle cx="264" cy="100" r="5" style="fill:var(--accent)"/>
+      <rect x="213" y="84" width="68" height="32" rx="8" style="fill:none;stroke:var(--accent);stroke-width:1.2;stroke-dasharray:3 3"/>
+      <text x="213" y="136" font-size="10.5" style="fill:var(--accent)" font-weight="600">extra catches</text>
     </svg>
     <p><strong>Problem:</strong> the team paid for a third party service to watch vendor status pages, and nobody knew if it was actually good.</p>
     <p><strong>Built:</strong> a dashboard monitoring 72 vendor status pages with Slack alerts, suppression policies and alert history.</p>
@@ -177,7 +205,7 @@
     <h3><a class="repo" href="https://github.com/felipereis26/gild-finance-dev">GILD finance tracker</a> &nbsp;<a class="repo" href="https://gildfinance.vercel.app/" style="font-size:.85rem">live app ↗</a></h3>
     <div class="meta">Mobile app · React, Capacitor, iOS build via Codemagic to TestFlight · best opened on a phone</div>
     <img class="shot" src="gild-scan.jpg" width="560" height="616" loading="lazy" alt="GILD's scan screen: upload a payment screenshot and the text is read on the device, nothing sent anywhere">
-    <p>A mobile-first budget and bill tracker built in React and wrapped with Capacitor into a real iOS app, delivered through a Codemagic pipeline to TestFlight. Dashboard, transactions, recurring bills, and a screenshot-scanning screen designed to hand an image to an AI model and get structured data back.</p>
+    <p>A mobile-first budget and bill tracker built in React and wrapped with Capacitor into a real iOS app, delivered through a Codemagic pipeline to TestFlight. Dashboard, transactions, recurring bills, and a scan screen that turns a payment screenshot into a structured transaction to review before saving.</p>
     <p>One decision worth noticing: all storage lives behind one async module, so swapping localStorage for on-device SQLite later means rewriting the inside of one file and touching zero screens. The repo includes the product and design docs, because writing down the why is half the work.</p>
     <div class="chips"><span class="chip">React</span><span class="chip">Capacitor</span><span class="chip">iOS pipeline</span><span class="chip">Architecture docs</span></div>
   </div>
