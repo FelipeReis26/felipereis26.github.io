@@ -93,6 +93,16 @@
   .ticket button:hover{opacity:.9}
   .ticket .err{display:none;color:var(--danger);font-size:.85rem;margin-top:10px}
   .ticket .note{color:var(--muted);font-size:.8rem;margin-top:12px}
+  @media (min-width:1080px){
+    main{max-width:1140px}
+    header p.tag{max-width:44em}
+    .colwrap{columns:2;column-gap:20px}
+    .colwrap .card{break-inside:avoid;margin-bottom:20px}
+    .archwrap{columns:2;column-gap:44px}
+    .arch-row{break-inside:avoid}
+    .duo{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    .duo h2{margin-top:52px}
+  }
 </style>
 </head>
 <body>
@@ -120,7 +130,8 @@
   <h2 id="work">Work case studies</h2>
   <p class="note">These are internal tools, so no links or screenshots; the diagrams use the same numbers described in the text.</p>
 
-  <div class="card" id="new-hire-tool">
+  <div class="colwrap">
+<div class="card" id="new-hire-tool">
     <h3>New hire access provisioning tool</h3>
     <div class="meta">Google Apps Script, JavaScript, Jira APIs, built with Anthropic Claude</div>
     <p class="result">Turns one new hire request into around 23 correctly typed Jira tickets. In production since July 2026.</p>
@@ -219,10 +230,12 @@
     <p><strong>Problem:</strong> the small quality checks that keep a desk healthy, handover accuracy, customer replies landing after a ticket is resolved, missing priorities, only happen when someone remembers.</p>
     <p><strong>Built:</strong> around 14 scheduled automations that remember instead: a weekly handover quality check with reminders to the right people, a post resolution replies sweep, a sweep for missing priorities, a matcher that checks new tickets against 7,565 resolved ones to surface precedents, and more. Two of them were packaged and shared with the wider desk through a plugin catalogue set up with our Platform Engineering team.</p>
   </div>
+</div>
 
   <h2>Personal projects</h2>
 
-  <div class="card" id="tripsy">
+  <div class="colwrap">
+<div class="card" id="tripsy">
     <h3><a class="repo" href="https://github.com/felipereis26/trip-planner">Tripsy</a></h3>
     <div class="meta">Static site + serverless function · HTML, CSS, JavaScript, Vercel</div>
     <img class="shot" src="tripsy-form.jpg" width="560" height="884" loading="lazy" alt="The add-a-trip form, scrapbook style: destination, dates, leave days, cost, and one line on why">
@@ -240,11 +253,12 @@
     <p>All storage lives behind one async module, so swapping localStorage for on-device SQLite later means rewriting the inside of one file and touching zero screens. The repo includes the product and design docs.</p>
     <div class="chips"><span class="chip">React</span><span class="chip">Capacitor</span><span class="chip">iOS pipeline</span><span class="chip">Architecture docs</span></div>
   </div>
+</div>
 
 
   <h2 id="everything">Everything else</h2>
   <p class="note">The case studies above are the long versions. This is everything else, one line each.</p>
-<div>
+<div class="archwrap">
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">TicketFixer</span> <span class="ds">— a ticket quality workbench for the desk: repairs types and fields on Jira tickets and matches each one against 7,565 resolved cases for precedent. More than a dozen versioned releases, distributed to the team through a plugin catalogue.</span></span><span class="tags"><span class="tg">AI</span><span class="tg">ITSM</span></span></div>
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Access request triage assistant</span> <span class="ds">— reads incoming access tickets, checks them against the documented access guides and drafts the correct redirect or approval route.</span></span><span class="tags"><span class="tg">AI</span><span class="tg">identity</span></span></div>
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Live team metrics dashboard</span> <span class="ds">— resolved totals, per analyst averages and daily targets, fed by live Jira queries.</span></span><span class="tags"><span class="tg">dashboards</span></span></div>
@@ -264,6 +278,8 @@
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">This site</span> <span class="ds">— one hand written HTML file on GitHub Pages: the case studies, the diagrams, the CV and this form, no framework and no build step.</span></span><span class="tags"><span class="tg">web</span></span></div>
 </div>
 
+<div class="duo">
+<div>
   <h2 id="about">About</h2>
   <p>Away from the queue:</p>
   <ul class="facts">
@@ -273,6 +289,8 @@
     <li>Formula 1 on Sundays, fantasy Premier League all season, a crossword most days.</li>
   </ul>
 
+</div>
+<div>
   <h2 id="contact">Raise a ticket</h2>
   <p class="note">Messages here open as an email in your own mail app. Nothing is stored on this site.</p>
   <form class="ticket" id="ticketForm">
@@ -287,6 +305,8 @@
     <p class="note">Current SLA: usually same day.</p>
   </form>
 
+</div>
+</div>
   <footer>
     Felipe Reis · Dublin, Ireland · <a class="repo" href="mailto:Felipe26lpe@gmail.com">Felipe26lpe@gmail.com</a>
   </footer>
