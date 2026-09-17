@@ -62,6 +62,11 @@
     .diagram{min-width:520px}
     .card{overflow-x:auto}
   }
+  .shot{float:right;width:min(230px,42%);margin:4px 0 12px 18px;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  .chips{clear:both}
+  @media (max-width:560px){
+    .shot{float:none;display:block;width:100%;max-width:300px;margin:4px auto 14px}
+  }
 </style>
 </head>
 <body>
@@ -161,6 +166,7 @@
   <div class="card" id="trip-planner">
     <h3><a class="repo" href="https://github.com/felipereis26/trip-planner">trip-planner</a></h3>
     <div class="meta">Static site + serverless function · HTML, CSS, JavaScript, Vercel</div>
+    <img class="shot" src="tripsy-form.jpg" width="560" height="884" loading="lazy" alt="The add-a-trip form, scrapbook style: destination, dates, leave days, cost, and one line on why">
     <p>A trip planning site my partner and I actually use. Each trip is its own page, and the home page computes leave-day totals and moves trips from upcoming to past automatically based on dates, no backend state to forget about.</p>
     <p>The interesting part is the add-a-trip flow: a form posts to a small serverless function that commits a new page straight into the GitHub repo, which triggers auto-deploy. The function uses a fine-grained GitHub token scoped to one repo with contents-only permissions, held as a server-side environment variable so it never reaches the browser. Small project, but built the way I build things at work: least privilege, no secrets in the client, documented so someone else could run it.</p>
     <p>The live deployment isn't linked here on purpose: it holds our real travel dates, and its write endpoint is scoped for two people, not the public internet. Knowing what not to publish is part of the job.</p>
@@ -170,6 +176,7 @@
   <div class="card" id="gild">
     <h3><a class="repo" href="https://github.com/felipereis26/gild-finance-dev">GILD finance tracker</a> &nbsp;<a class="repo" href="https://gildfinance.vercel.app/" style="font-size:.85rem">live app ↗</a></h3>
     <div class="meta">Mobile app · React, Capacitor, iOS build via Codemagic to TestFlight · best opened on a phone</div>
+    <img class="shot" src="gild-scan.jpg" width="560" height="616" loading="lazy" alt="GILD's scan screen: upload a payment screenshot and the text is read on the device, nothing sent anywhere">
     <p>A mobile-first budget and bill tracker built in React and wrapped with Capacitor into a real iOS app, delivered through a Codemagic pipeline to TestFlight. Dashboard, transactions, recurring bills, and a screenshot-scanning screen designed to hand an image to an AI model and get structured data back.</p>
     <p>One decision worth noticing: all storage lives behind one async module, so swapping localStorage for on-device SQLite later means rewriting the inside of one file and touching zero screens. The repo includes the product and design docs, because writing down the why is half the work.</p>
     <div class="chips"><span class="chip">React</span><span class="chip">Capacitor</span><span class="chip">iOS pipeline</span><span class="chip">Architecture docs</span></div>
