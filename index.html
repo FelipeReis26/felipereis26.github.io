@@ -20,7 +20,7 @@
   .links a{color:var(--accent);text-decoration:none;margin-right:18px;font-weight:600}
   .links a:hover{text-decoration:underline}
   h2{font-size:1.15rem;color:var(--accent);border-bottom:2px solid var(--line);padding-bottom:6px;margin:44px 0 18px;letter-spacing:.02em;text-transform:uppercase}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-bottom:16px;scroll-margin-top:24px}
   .card h3{margin:0 0 2px;font-size:1.05rem}
   .card .meta{color:var(--muted);font-size:.85rem;margin-bottom:10px}
   .card p{margin:0 0 10px}
@@ -52,17 +52,18 @@
 
   <h2>Personal projects</h2>
 
-  <div class="card">
+  <div class="card" id="trip-planner">
     <h3><a class="repo" href="https://github.com/felipereis26/trip-planner">trip-planner</a></h3>
     <div class="meta">Static site + serverless function · HTML, CSS, JavaScript, Vercel</div>
     <p>A trip planning site my partner and I actually use. Each trip is its own page, and the home page computes leave-day totals and moves trips from upcoming to past automatically based on dates, no backend state to forget about.</p>
     <p>The interesting part is the add-a-trip flow: a form posts to a small serverless function that commits a new page straight into the GitHub repo, which triggers auto-deploy. The function uses a fine-grained GitHub token scoped to one repo with contents-only permissions, held as a server-side environment variable so it never reaches the browser. Small project, but built the way I build things at work: least privilege, no secrets in the client, documented so someone else could run it.</p>
+    <p>The live deployment isn't linked here on purpose: it holds our real travel dates, and its write endpoint is scoped for two people, not the public internet. Knowing what not to publish is part of the job.</p>
     <div class="chips"><span class="chip">JavaScript</span><span class="chip">Serverless</span><span class="chip">CI/CD</span><span class="chip">Least-privilege tokens</span></div>
   </div>
 
-  <div class="card">
-    <h3><a class="repo" href="https://github.com/felipereis26/gild-finance-dev">GILD finance tracker</a></h3>
-    <div class="meta">Mobile app · React, Capacitor, iOS build via Codemagic to TestFlight</div>
+  <div class="card" id="gild">
+    <h3><a class="repo" href="https://github.com/felipereis26/gild-finance-dev">GILD finance tracker</a> &nbsp;<a class="repo" href="https://gildfinance.vercel.app/" style="font-size:.85rem">live app ↗</a></h3>
+    <div class="meta">Mobile app · React, Capacitor, iOS build via Codemagic to TestFlight · best opened on a phone</div>
     <p>A mobile-first budget and bill tracker built in React and wrapped with Capacitor into a real iOS app, delivered through a Codemagic pipeline to TestFlight. Dashboard, transactions, recurring bills, and a screenshot-scanning screen designed to hand an image to an AI model and get structured data back.</p>
     <p>The design decision I'd defend in an interview: all storage lives behind one async module, so swapping localStorage for on-device SQLite later means rewriting the inside of one file and touching zero screens. The repo includes the product and design docs, because writing down the why is half the work.</p>
     <div class="chips"><span class="chip">React</span><span class="chip">Capacitor</span><span class="chip">iOS pipeline</span><span class="chip">Architecture docs</span></div>
@@ -70,7 +71,7 @@
 
   <h2>Work case studies</h2>
 
-  <div class="card">
+  <div class="card" id="new-hire-tool">
     <h3>New hire access provisioning tool</h3>
     <div class="meta">Google Apps Script, JavaScript, Jira APIs, built with Anthropic Claude · in production since July 2026</div>
     <p><strong>Problem:</strong> every new hire needed around 23 correctly typed access tickets raised by hand, slow, error prone, and different every time depending on role.</p>
@@ -79,7 +80,7 @@
     <p><strong>Outcome:</strong> vetted with subject matter experts, signed off for production, usable by any tech on the desk.</p>
   </div>
 
-  <div class="card">
+  <div class="card" id="status-dashboard">
     <h3>Vendor status monitoring dashboard</h3>
     <div class="meta">Google Apps Script web app, Slack alerting · replaced a paid monitoring service</div>
     <p><strong>Problem:</strong> the team paid for a third party service to watch vendor status pages, and nobody knew if it was actually good.</p>
@@ -88,7 +89,7 @@
     <p><strong>Outcome:</strong> the subscription (around $4,000 a year) is set to be cancelled.</p>
   </div>
 
-  <div class="card">
+  <div class="card" id="automation-hub">
     <h3>Service desk automation hub</h3>
     <div class="meta">Google Apps Script web app, JavaScript/HTML/CSS, Jira and Slack REST APIs, GitHub</div>
     <p><strong>Problem:</strong> the desk's daily rhythm, morning triage, ticket quality checks, team metrics, lived in a dozen manual places.</p>
@@ -96,14 +97,14 @@
     <p><strong>Rollout:</strong> staged, with defined acceptance criteria, structured tester feedback and post rollout follow up, and a launch presented at a company offsite.</p>
   </div>
 
-  <div class="card">
+  <div class="card" id="knowledge-base">
     <h3>Knowledge base overhaul</h3>
     <div class="meta">Confluence, KCS methodology, Jira automation · co-lead, in progress</div>
     <p><strong>Problem:</strong> a roughly 700 page service desk knowledge base with no ownership, no review cycle and years of drift.</p>
     <p><strong>Doing:</strong> co-driving a KCS aligned overhaul: full inventory, accuracy audit (I personally reviewed over 100 internal pages), a metadata template with named owners, and a proposed 90 day review cycle. I've also written 19 internal guides and runbooks myself, because the fastest way to raise a standard is to publish examples of it.</p>
   </div>
 
-  <div class="card">
+  <div class="card" id="automation-fleet">
     <h3>Scheduled automation fleet</h3>
     <div class="meta">Anthropic Claude, AI agent workflows, Jira/Slack/Confluence APIs</div>
     <p><strong>Problem:</strong> the small quality checks that keep a desk healthy, handover accuracy, customer replies landing after a ticket is resolved, missing priorities, only happen when someone remembers.</p>
