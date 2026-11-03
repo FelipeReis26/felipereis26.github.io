@@ -125,7 +125,7 @@
   </header>
 
   <h2>About</h2>
-  <p>I'm a Service Desk Analyst III at a global sports betting and gaming company, supporting a workforce across the US, UK and Ireland. This past year I resolved around 1,400 tickets at a 98% resolution rate, and along the way I started automating the repetitive parts of the job with AI. That grew into a set of internal tools the desk now uses daily. I have a BSc in Computing with Distinction, recently completed a UCD Professional Academy Diploma in Cybersecurity, and I'm fluent in English and Portuguese.</p>
+  <p>I'm a Service Desk Analyst III at a global sports betting and gaming company, supporting a workforce across the US, UK and Ireland. This past year I resolved around 1,400 tickets at a 98% resolution rate, and along the way I started automating the repetitive parts of the job with AI. That grew into a set of internal tools the desk now uses daily. I have a BSc in Computing and a UCD Professional Academy Diploma in Cybersecurity, both with Distinction, and I'm fluent in English and Portuguese.</p>
 
   <h2 id="work">Work case studies</h2>
   <p class="note">These are internal tools, so no links or screenshots; the diagrams use the same numbers described in the text.</p>
@@ -134,7 +134,7 @@
 <div class="card" id="new-hire-tool">
     <h3>New hire access provisioning tool</h3>
     <div class="meta">Google Apps Script, JavaScript, Jira APIs, built with Anthropic Claude</div>
-    <p class="result">Turns one new hire request into around 23 correctly typed Jira tickets. In production since July 2026.</p>
+    <p class="result">Turns one new hire request into around 23 correctly typed Jira tickets. In production since July 2026, now run from the desk’s New hire hub.</p>
     <svg class="diagram diagram-d" viewBox="0 0 640 104" role="img" aria-label="Flow: one new hire request, through a routing matrix built from 1,600 historical tickets and safety gates, becomes around 23 Jira tickets">
       <defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="currentColor" class="ac" style="fill:var(--accent)"/></marker></defs>
       <rect class="box" x="6" y="22" width="130" height="44" rx="8"/>
@@ -171,12 +171,12 @@
     <p><strong>Problem:</strong> every new hire needed around 23 correctly typed access tickets raised by hand, slow, error prone, and different every time depending on role.</p>
     <p><strong>Built:</strong> a tool that turns one new hire request into the complete batch. The routing rules came from reviewing roughly 1,600 historical tickets to establish what each role actually needs and who approves it.</p>
     <p><strong>Safety:</strong> read only test mode by default, multiple typed confirmations before anything writes to production, a live schema check against Jira before every run, and a crash resumable journal so an interrupted batch never creates duplicates.</p>
-    <p><strong>Outcome:</strong> vetted with subject matter experts, signed off for production, usable by any tech on the desk.</p>
+    <p><strong>Outcome:</strong> vetted with subject matter experts, signed off for production, usable by any tech on the desk. Since October the day one requester runs from the New hire hub instead of a tab in the automation hub.</p>
   </div>
 
   <div class="card" id="status-dashboard">
     <h3>Vendor status monitoring dashboard</h3>
-    <div class="meta">Google Apps Script web app, Slack alerting</div>
+    <div class="meta">Google Apps Script web app, Slack alerting · now being rewritten as a Node service in Docker</div>
     <p class="result">Matched a paid service and caught outages it missed. Around $4,000 a year set to be saved.</p>
     <svg class="diagram diagram-d" viewBox="0 0 640 92" role="img" aria-label="Side by side trial: every incident the paid service caught was matched, plus extra catches the paid service missed">
       <text x="6" y="30" font-size="11.5" class="dk" font-weight="600">paid service</text>
@@ -201,8 +201,9 @@
       <text x="213" y="136" font-size="11.5" style="fill:var(--accent)" font-weight="600">extra catches</text>
     </svg>
     <p><strong>Problem:</strong> the team paid for a third party service to watch vendor status pages, and nobody knew if it was actually good.</p>
-    <p><strong>Built:</strong> a dashboard monitoring 72 vendor status pages with Slack alerts, suppression policies and alert history.</p>
+    <p><strong>Built:</strong> a dashboard monitoring 81 vendor status pages with Slack alerts, suppression policies and alert history.</p>
     <p><strong>Proof:</strong> instead of switching on faith, I ran a multi week side by side trial against the paid tool, with an automated comparison every day. The review tracked what my dashboard missed just as carefully as what it caught. It matched the paid tool's incident coverage and caught several outages it missed, including an 8 hour Tier 1 vendor incident.</p>
+    <p><strong>Rewrite:</strong> it is now being rebuilt as a standalone Node service in a Docker container, heading for AWS, with every parser tested side by side against the old version on the same inputs. That comparison turned up two things the old version had been missing: the AWS status feed is UTF-16, which it had been reading as UTF-8, so AWS had never really been monitored, and DocuSign had moved its status page to a new address.</p>
     <p><strong>Outcome:</strong> the subscription (around $4,000 a year) is set to be cancelled.</p>
   </div>
 
@@ -213,6 +214,7 @@
     <p><strong>Problem:</strong> the desk's daily rhythm, morning triage, ticket quality checks, team metrics, lived in a dozen manual places.</p>
     <p><strong>Built:</strong> an internal web app that brings it together: a morning triage queue, ticket QA, and live dashboards with team resolution metrics. Dozens of versioned releases, code on GitHub behind protected branches with a build and verification pipeline.</p>
     <p><strong>Rollout:</strong> staged. A few techs had to use it on real working days before it went any wider, I worked through their feedback as it came in, and I presented it to the team at a company offsite.</p>
+    <p><strong>Next:</strong> the desk runs a stable build, frozen on purpose. New work, like an AI lab where every suggestion is measured against what the tech actually did, and an on call page fed by live incidents, runs in a Docker sandbox first, ahead of hosting on AWS.</p>
   </div>
 
   <div class="card" id="knowledge-base">
@@ -228,7 +230,7 @@
     <div class="meta">Anthropic Claude, AI agent workflows, Jira/Slack/Confluence APIs</div>
     <p class="result">Around 14 checks that run whether anyone remembers them or not.</p>
     <p><strong>Problem:</strong> the small quality checks that keep a desk healthy, handover accuracy, customer replies landing after a ticket is resolved, missing priorities, only happen when someone remembers.</p>
-    <p><strong>Built:</strong> around 14 scheduled automations that remember instead: a weekly handover quality check with reminders to the right people, a post resolution replies sweep, a sweep for missing priorities, a matcher that checks new tickets against 7,565 resolved ones to surface precedents, and more. Two of them were packaged and shared with the wider desk through a plugin catalogue set up with our Platform Engineering team.</p>
+    <p><strong>Built:</strong> around 14 scheduled automations that remember instead: a weekly handover quality check with reminders to the right people, a post resolution replies sweep, a sweep for missing priorities, a matcher that checks new tickets against 14,498 resolved ones to surface precedents, and more. Two of them were packaged and shared with the wider desk through a plugin catalogue set up with our Platform Engineering team.</p>
   </div>
 </div>
 
@@ -241,7 +243,8 @@
     <img class="shot" src="tripsy-form.jpg" width="560" height="884" loading="lazy" alt="The add-a-trip form, scrapbook style: destination, dates, leave days, cost, and one line on why">
     <p>A trip planning site my partner and I actually use. Each trip is its own page, and the home page computes leave-day totals and moves trips from upcoming to past automatically based on dates, no backend state to forget about.</p>
     <p>The interesting part is the add-a-trip flow: a form posts to a small serverless function that commits a new page straight into the GitHub repo, which triggers auto-deploy. The function uses a fine-grained GitHub token scoped to one repo with contents-only permissions, held as a server-side environment variable so it never reaches the browser. It's a small project, but the README covers setup end to end, so someone else could run it without me.</p>
-    <p>The site holds our real travel dates, so the deployment is gated behind a shared password: a small Vercel middleware enforces HTTP Basic Auth on every path before anything is served. That's why there's no live link here.</p>
+    <p>Each trip now has a packing list for each of us. Ticking an item saves through a second function that replaces only that person's part of the list, so two phones saving at once never overwrite each other, and the deploy skips commits that only touch packing lists.</p>
+    <p>The site holds our real travel dates, so the deployment is gated behind a shared password: a small Vercel middleware checks for a valid session on every path and sends anyone without one to a login page before anything is served. That's why there's no live link here.</p>
     <div class="chips"><span class="chip">JavaScript</span><span class="chip">Serverless</span><span class="chip">Auth middleware</span><span class="chip">Least-privilege tokens</span></div>
   </div>
 
@@ -250,8 +253,18 @@
     <div class="meta">Mobile app · React, Capacitor, iOS build via Codemagic to TestFlight · best opened on a phone</div>
     <img class="shot" src="gild-scan.jpg" width="560" height="616" loading="lazy" alt="GILD's scan screen: upload a payment screenshot and the text is read on the device, nothing sent anywhere">
     <p>A mobile-first budget and bill tracker built in React and wrapped with Capacitor into a real iOS app, delivered through a Codemagic pipeline to TestFlight. Dashboard, transactions, recurring bills, and a scan screen that turns a payment screenshot into a structured transaction to review before saving.</p>
+    <p>Balances are tracked per account and reconciled against each bank's own statement. A transfer between two of my accounts is a single row that knows both ends, so it can never be counted twice.</p>
     <p>All storage lives behind one async module, so swapping localStorage for on-device SQLite later means rewriting the inside of one file and touching zero screens. The repo includes the product and design docs.</p>
     <div class="chips"><span class="chip">React</span><span class="chip">Capacitor</span><span class="chip">iOS pipeline</span><span class="chip">Architecture docs</span></div>
+  </div>
+
+  <div class="card" id="final-whistle">
+    <h3>Final Whistle</h3>
+    <div class="meta">Football match predictor · Python, JavaScript, GitHub Actions</div>
+    <p>A football predictor for the top divisions of ten European leagues, plus Champions League and Europa League games. It gives home, draw and away chances from Elo ratings, recent form and a goals model, and puts them next to the bookmakers’ prices.</p>
+    <p>The rule I held it to was being honest about the results. Every setting was chosen on a validation set, and on 4,194 test matches it never saw, the model comes close to the bookmakers but doesn’t beat them. The write up says that plainly, along with which betting strategies lose money.</p>
+    <p>A GitHub Actions job runs four times a day, logs a prediction for every upcoming fixture with the odds at that moment, and scores the finished matches. Every addition is its own commit, so the record shows each prediction existed before kickoff. Tests check the page’s JavaScript copy of the model against the Python one. The phone page is password protected, so there’s no link here.</p>
+    <div class="chips"><span class="chip">Python</span><span class="chip">Machine learning</span><span class="chip">GitHub Actions</span><span class="chip">Testing</span></div>
   </div>
 </div>
 
@@ -259,7 +272,9 @@
   <h2 id="everything">Everything else</h2>
   <p class="note">The case studies above are the long versions. This is everything else, one line each.</p>
 <div class="archwrap">
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">TicketFixer</span> <span class="ds">— a ticket quality workbench for the desk: repairs types and fields on Jira tickets and matches each one against 7,565 resolved cases for precedent. More than a dozen versioned releases, distributed to the team through a plugin catalogue.</span></span><span class="tags"><span class="tg">AI</span><span class="tg">ITSM</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">TicketFixer</span> <span class="ds">— a ticket quality workbench for the desk: repairs types and fields on Jira tickets and matches each one against 14,498 resolved cases for precedent, with restricted tickets removed and secrets stripped first. 31 versioned releases, published in the company’s Claude plugin catalogue in October.</span></span><span class="tags"><span class="tg">AI</span><span class="tg">ITSM</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">SLA first response watch</span> <span class="ds">— watches the first response clock on a queue, drafts a reply before it runs out, and keeps any breached ticket nobody has answered at the top until someone does. Posting always asks first.</span></span><span class="tags"><span class="tg">AI</span><span class="tg">ITSM</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Form Finder</span> <span class="ds">— look up how to get access to any of 203 internal apps: the form, who approves, and what to put in the request. On past real requests the right app comes up in the top three 96.5% of the time.</span></span><span class="tags"><span class="tg">identity</span><span class="tg">ITSM</span></span></div>
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Access request triage assistant</span> <span class="ds">— reads incoming access tickets, checks them against the documented access guides and drafts the correct redirect or approval route.</span></span><span class="tags"><span class="tg">AI</span><span class="tg">identity</span></span></div>
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Live team metrics dashboard</span> <span class="ds">— resolved totals, per analyst averages and daily targets, fed by live Jira queries.</span></span><span class="tags"><span class="tg">dashboards</span></span></div>
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">NATS role recommender</span> <span class="ds">— recommends the correct production access role from a ticket’s own fields, against a maintained routing matrix.</span></span><span class="tags"><span class="tg">identity</span><span class="tg">AI</span></span></div>
@@ -274,7 +289,7 @@
   <div class="arch-row"><span class="yr">2025–26</span><span><span class="nm">Internal guides and runbooks</span> <span class="ds">— 19 Confluence pages, from office runbooks and WiFi guides to the desk’s guide for moving Claude to a new Mac.</span></span><span class="tags"><span class="tg">documentation</span></span></div>
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">GCP 2 step verification prep</span> <span class="ds">— readied the desk for a mandatory Google Cloud security rollout ahead of its deadline.</span></span><span class="tags"><span class="tg">security</span></span></div>
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Executive laptop migrations</span> <span class="ds">— coordinated senior staff device migrations through their assistants, scheduled around their diaries.</span></span><span class="tags"><span class="tg">operations</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Diploma in Cybersecurity</span> <span class="ds">— UCD Professional Academy, completed alongside the full time role. Results due September 2026.</span></span><span class="tags"><span class="tg">study</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Diploma in Cybersecurity</span> <span class="ds">— UCD Professional Academy, completed alongside the full time role. Passed with Distinction.</span></span><span class="tags"><span class="tg">study</span></span></div>
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">This site</span> <span class="ds">— one hand written HTML file on GitHub Pages: the case studies, the diagrams, the CV and this form, no framework and no build step.</span></span><span class="tags"><span class="tg">web</span></span></div>
 </div>
 
