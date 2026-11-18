@@ -11,5 +11,6 @@ One HTML file, no framework, no build step. Push to `main` and GitHub Pages rede
 - [New hire access provisioning tool](https://felipereis26.github.io/#new-hire-tool) - one request becomes ~23 correctly typed Jira tickets, safely
 - [Vendor status monitoring dashboard](https://felipereis26.github.io/#status-dashboard) - matched a paid monitoring service in a measured side by side trial, and caught outages it missed
 - [Tripsy](https://felipereis26.github.io/#tripsy) - trip planning site with a serverless function that commits new pages to its own repo
-- [GILD finance tracker](https://felipereis26.github.io/#gild) - React + Capacitor app with an iOS build pipeline
+- [GILD finance tracker](https://felipereis26.github.io/#gild) - pay-period budget tracker, React + Capacitor, everything stays on the phone
+- [Tessera](https://felipereis26.github.io/#tessera) - a shared daily checklist for puzzle games, with web push reminders and an iPhone app
 - [Final Whistle](https://felipereis26.github.io/#final-whistle) - football match predictor with an honest backtest and a prediction log GitHub Actions keeps four times a day

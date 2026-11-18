@@ -230,7 +230,7 @@
     <div class="meta">Anthropic Claude, AI agent workflows, Jira/Slack/Confluence APIs</div>
     <p class="result">Around 14 checks that run whether anyone remembers them or not.</p>
     <p><strong>Problem:</strong> the small quality checks that keep a desk healthy, handover accuracy, customer replies landing after a ticket is resolved, missing priorities, only happen when someone remembers.</p>
-    <p><strong>Built:</strong> around 14 scheduled automations that remember instead: a weekly handover quality check with reminders to the right people, a post resolution replies sweep, a sweep for missing priorities, a matcher that checks new tickets against 14,498 resolved ones to surface precedents, and more. Two of them were packaged and shared with the wider desk through a plugin catalogue set up with our Platform Engineering team.</p>
+    <p><strong>Built:</strong> around 14 scheduled automations that remember instead: a weekly handover quality check with reminders to the right people, a post resolution replies sweep, a sweep for missing priorities, a matcher that checks new tickets against 14,498 resolved ones to surface precedents, and more. Two of them were packaged and shared with the wider desk through a plugin catalogue set up with our Platform Engineering team. In November I folded ten of them into one weekday morning brief, so Slack only gets the things that need someone right now.</p>
   </div>
 </div>
 
@@ -243,19 +243,28 @@
     <img class="shot" src="tripsy-form.jpg" width="560" height="884" loading="lazy" alt="The add-a-trip form, scrapbook style: destination, dates, leave days, cost, and one line on why">
     <p>A trip planning site my partner and I actually use. Each trip is its own page, and the home page computes leave-day totals and moves trips from upcoming to past automatically based on dates, no backend state to forget about.</p>
     <p>The interesting part is the add-a-trip flow: a form posts to a small serverless function that commits a new page straight into the GitHub repo, which triggers auto-deploy. The function uses a fine-grained GitHub token scoped to one repo with contents-only permissions, held as a server-side environment variable so it never reaches the browser. It's a small project, but the README covers setup end to end, so someone else could run it without me.</p>
-    <p>Each trip now has a packing list for each of us. Ticking an item saves through a second function that replaces only that person's part of the list, so two phones saving at once never overwrite each other, and the deploy skips commits that only touch packing lists.</p>
+    <p>Each trip now has a packing list for each of us. Ticking an item saves through a second function that replaces only that person's part of the list, so two phones saving at once never overwrite each other, and the deploy skips commits that only touch packing lists. There's also an iPhone app with an offline copy of every trip, and a small read only feed, behind its own token, that GILD reads so trip costs show up in my budget.</p>
     <p>The site holds our real travel dates, so the deployment is gated behind a shared password: a small Vercel middleware checks for a valid session on every path and sends anyone without one to a login page before anything is served. That's why there's no live link here.</p>
     <div class="chips"><span class="chip">JavaScript</span><span class="chip">Serverless</span><span class="chip">Auth middleware</span><span class="chip">Least-privilege tokens</span></div>
   </div>
 
   <div class="card" id="gild">
     <h3><a class="repo" href="https://github.com/felipereis26/gild-finance-dev">GILD finance tracker</a> &nbsp;<a class="repo" href="https://gildfinance.vercel.app/" style="font-size:.85rem">live app ↗</a></h3>
-    <div class="meta">Mobile app · React, Capacitor, iOS build via Codemagic to TestFlight · best opened on a phone</div>
+    <div class="meta">Mobile app · React, Capacitor, runs on my iPhone · best opened on a phone</div>
     <img class="shot" src="gild-scan.jpg" width="560" height="616" loading="lazy" alt="GILD's scan screen: upload a payment screenshot and the text is read on the device, nothing sent anywhere">
-    <p>A mobile-first budget and bill tracker built in React and wrapped with Capacitor into a real iOS app, delivered through a Codemagic pipeline to TestFlight. Dashboard, transactions, recurring bills, and a scan screen that turns a payment screenshot into a structured transaction to review before saving.</p>
+    <p>A mobile-first budget and bill tracker built in React and wrapped with Capacitor into a real iPhone app. It plans each pay period: on payday it splits the pay across bills, savings and spending limits, and the dashboard shows what's safe to spend today. Bank statements import straight in, repeat charges get flagged as subscriptions, and a scan screen turns a payment screenshot into a transaction to review before saving.</p>
     <p>Balances are tracked per account and reconciled against each bank's own statement. A transfer between two of my accounts is a single row that knows both ends, so it can never be counted twice.</p>
-    <p>All storage lives behind one async module, so swapping localStorage for on-device SQLite later means rewriting the inside of one file and touching zero screens. The repo includes the product and design docs.</p>
-    <div class="chips"><span class="chip">React</span><span class="chip">Capacitor</span><span class="chip">iOS pipeline</span><span class="chip">Architecture docs</span></div>
+    <p>Nothing leaves the phone: no server, no account, no bank connection. All storage lives behind one module, and on the iPhone it also keeps a copy in the app's own files, because iOS can clear a web view's storage on its own. That copy is loaded back before the app starts and rewritten after every change.</p>
+    <div class="chips"><span class="chip">React</span><span class="chip">Capacitor</span><span class="chip">On-device storage</span><span class="chip">Statement import</span></div>
+  </div>
+
+  <div class="card" id="tessera">
+    <h3>Tessera &nbsp;<a class="repo" href="https://thetessera.vercel.app/" style="font-size:.85rem">live app ↗</a></h3>
+    <div class="meta">Web app + iPhone app · React, TypeScript, Supabase, Vercel, Capacitor · best opened on a phone</div>
+    <p>A daily checklist for the puzzle games my friends and I play. Each game is a tile: tap it to open the game, and when you come back after long enough to have played, the tile ticks itself, with an undo in case you didn't. A group shares one board, so you can see who's done what today, with streaks and a calendar for each game.</p>
+    <p>The fiddly part was the tick. Only a real departure counts, the page actually going hidden, so a focus flicker or the handoff between apps can't fake a return, and if iOS unloads the page while you play, the return is still caught when it reopens.</p>
+    <p>Reminders are web push: the rules for who gets what live in SQL with their own tests, an Edge Function sends them every minute, and the encryption is checked against the spec. Sign up needs an invite, and row level security on every table is covered by database tests.</p>
+    <div class="chips"><span class="chip">TypeScript</span><span class="chip">Supabase</span><span class="chip">Web Push</span><span class="chip">Row level security</span></div>
   </div>
 
   <div class="card" id="final-whistle">
@@ -272,8 +281,8 @@
   <h2 id="everything">Everything else</h2>
   <p class="note">The case studies above are the long versions. This is everything else, one line each.</p>
 <div class="archwrap">
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">TicketFixer</span> <span class="ds">— a ticket quality workbench for the desk: repairs types and fields on Jira tickets and matches each one against 14,498 resolved cases for precedent, with restricted tickets removed and secrets stripped first. 31 versioned releases, published in the company’s Claude plugin catalogue in October.</span></span><span class="tags"><span class="tg">AI</span><span class="tg">ITSM</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">SLA first response watch</span> <span class="ds">— watches the first response clock on a queue, drafts a reply before it runs out, and keeps any breached ticket nobody has answered at the top until someone does. Posting always asks first.</span></span><span class="tags"><span class="tg">AI</span><span class="tg">ITSM</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">TicketFixer</span> <span class="ds">— a ticket quality workbench for the desk: repairs types and fields on Jira tickets and matches each one against 14,498 resolved cases for precedent, with restricted tickets removed and secrets stripped first. 33 versioned releases, published in the company’s Claude plugin catalogue in October.</span></span><span class="tags"><span class="tg">AI</span><span class="tg">ITSM</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">SLA first response watch</span> <span class="ds">— watches the first response clock on a queue, drafts a reply as soon as a clock starts, and keeps any breached ticket nobody has answered at the top until someone does. Posting always asks first.</span></span><span class="tags"><span class="tg">AI</span><span class="tg">ITSM</span></span></div>
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Form Finder</span> <span class="ds">— look up how to get access to any of 203 internal apps: the form, who approves, and what to put in the request. On past real requests the right app comes up in the top three 96.5% of the time.</span></span><span class="tags"><span class="tg">identity</span><span class="tg">ITSM</span></span></div>
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Access request triage assistant</span> <span class="ds">— reads incoming access tickets, checks them against the documented access guides and drafts the correct redirect or approval route.</span></span><span class="tags"><span class="tg">AI</span><span class="tg">identity</span></span></div>
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Live team metrics dashboard</span> <span class="ds">— resolved totals, per analyst averages and daily targets, fed by live Jira queries.</span></span><span class="tags"><span class="tg">dashboards</span></span></div>
@@ -290,6 +299,8 @@
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">GCP 2 step verification prep</span> <span class="ds">— readied the desk for a mandatory Google Cloud security rollout ahead of its deadline.</span></span><span class="tags"><span class="tg">security</span></span></div>
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Executive laptop migrations</span> <span class="ds">— coordinated senior staff device migrations through their assistants, scheduled around their diaries.</span></span><span class="tags"><span class="tg">operations</span></span></div>
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Diploma in Cybersecurity</span> <span class="ds">— UCD Professional Academy, completed alongside the full time role. Passed with Distinction.</span></span><span class="tags"><span class="tg">study</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Lunch and learn</span> <span class="ds">— a talk to the desk on the tools above, with a live demo of the ticket workbench on a real ticket and a few made up ones.</span></span><span class="tags"><span class="tg">people</span></span></div>
+  <div class="arch-row"><span class="yr">2026</span><span><a class="nm" href="https://github.com/FelipeReis26/dev-hub">Dev hub</a> <span class="ds">— a local dashboard over every project I’m building and the Claude sessions in each, with an idea backlog and a scaffolder that sets up a new project the same way every time.</span></span><span class="tags"><span class="tg">tooling</span></span></div>
   <div class="arch-row"><span class="yr">2026</span><span><span class="nm">This site</span> <span class="ds">— one hand written HTML file on GitHub Pages: the case studies, the diagrams, the CV and this form, no framework and no build step.</span></span><span class="tags"><span class="tg">web</span></span></div>
 </div>
 
