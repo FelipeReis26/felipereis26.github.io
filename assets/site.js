@@ -1,5 +1,14 @@
 document.documentElement.classList.add('js');
 
+// The top bar sticks; it gets a hairline once the page has scrolled under it.
+(function () {
+  var bar = document.getElementById('topbar');
+  if (!bar) return;
+  function check() { bar.classList.toggle('stuck', window.scrollY > 4); }
+  window.addEventListener('scroll', check, { passive: true });
+  check();
+})();
+
 // A working copy of the Tessera board: tap a tile, it shows Playing, then ticks itself, with an Undo.
 (function () {
   var board = document.getElementById('tessBoard');

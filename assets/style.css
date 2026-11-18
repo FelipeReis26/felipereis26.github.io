@@ -13,7 +13,7 @@
     --accent:#f1f1f3; --muted:#a5a6ae; --focus:#f1f1f3; --danger:#ff9a8f; color-scheme:dark; }
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:20px;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
 body{margin:0;background:var(--ground);color:var(--ink);font:400 17px/1.6 var(--text);font-feature-settings:"ss01";-webkit-font-smoothing:antialiased}
 ::selection{background:var(--ink);color:var(--ground)}
@@ -28,7 +28,9 @@ p:last-child{margin-bottom:0}
 .num{font-variant-numeric:tabular-nums}
 
 /* ---------- top ---------- */
-.top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:22px;padding-bottom:22px}
+.topbar{position:sticky;top:0;z-index:50;background:var(--ground);transition:box-shadow .2s ease}
+.topbar.stuck{box-shadow:0 1px 0 var(--line)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:18px;padding-bottom:18px}
 .top .me{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.01em;text-decoration:none}
 .top nav{display:flex;gap:clamp(14px,2.2vw,28px);font-size:14px;color:var(--ink-2)}
 .top nav a{text-decoration:none}
@@ -106,7 +108,7 @@ p:last-child{margin-bottom:0}
 @media (max-width:860px){ .sec-head{grid-template-columns:minmax(0,1fr);gap:16px} }
 
 /* work entries */
-.job{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,64px);padding:clamp(32px,4vw,48px) 0;border-top:1px solid var(--line);scroll-margin-top:24px}
+.job{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,64px);padding:clamp(32px,4vw,48px) 0;border-top:1px solid var(--line)}
 .job h3{font-size:clamp(28px,2.8vw,38px);font-weight:700}
 .job .stack{margin-top:14px;font-size:14px;line-height:1.5;color:var(--ink-3);max-width:32ch}
 .job .big{display:block;margin-top:22px;font-family:var(--display);font-weight:700;font-size:clamp(20px,1.7vw,24px);letter-spacing:-.015em;line-height:1.4;color:var(--ink);max-width:22ch}
@@ -128,7 +130,7 @@ p:last-child{margin-bottom:0}
 @media (prefers-reduced-motion: reduce){ .js .diagram .arrow{stroke-dashoffset:0;transition:none} }
 
 /* ---------- app bands: each in its own colours ---------- */
-.band{scroll-margin-top:0;padding:clamp(56px,8vw,112px) 0}
+.band{padding:clamp(56px,8vw,112px) 0}
 .band .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(28px,5vw,80px);align-items:center}
 .band.flip .copy{order:2}
 .band h3{font-size:clamp(44px,5.6vw,80px);font-weight:800;letter-spacing:-.035em;line-height:.95}
@@ -193,7 +195,7 @@ p:last-child{margin-bottom:0}
 /* ---------- about + ticket ---------- */
 .closing{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,80px);align-items:start}
 @media (max-width:860px){ .closing{grid-template-columns:minmax(0,1fr)} }
-.closing h2{font-size:clamp(36px,4.2vw,56px);font-weight:800;margin-bottom:22px;scroll-margin-top:24px}
+.closing h2{font-size:clamp(36px,4.2vw,56px);font-weight:800;margin-bottom:22px}
 .about p{color:var(--ink-2)}
 .about ul{list-style:none;padding:0;margin:22px 0 0}
 .about li{padding:12px 0;border-top:1px solid var(--line);color:var(--ink-2)}
