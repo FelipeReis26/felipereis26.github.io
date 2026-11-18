@@ -90,7 +90,7 @@
 <section class="wrap sec" id="work" aria-labelledby="work-h">
   <div class="sec-head">
     <h2 id="work-h">At work</h2>
-    <p>I'm a Service Desk Analyst III at a global sports betting and gaming company. The desk supports people in the US, UK and Ireland. These tools are internal. There are no screenshots or links here, only what they do and the numbers.</p>
+    <p>I'm a Service Desk Analyst III at a global sports betting and gaming company. These tools are internal, so I can't show screenshots. Here's what each one does and what it changed.</p>
   </div>
 
   <article class="job" id="new-hire-tool">
@@ -133,8 +133,7 @@
       <text x="170" y="216" text-anchor="middle" font-size="11.5">every write journalled &#183; resumable</text>
       <text x="170" y="232" text-anchor="middle" font-size="11.5">schema checked against live Jira first</text>
     </svg>
-      <p>Every new starter used to mean raising around 23 access tickets by hand. The set changed every time, depending on the role. I went through about <b>1,600 old tickets</b> to work out what each role needs and who signs it off. Those findings became the rules.</p>
-      <p>It runs in test mode by default. Before every run it checks Jira is set up the way it expects. It asks twice before it writes anything for real. A journal means a run that stops halfway never makes duplicates. The subject matter experts signed it off, and it's been in production since July 2026. Since October it runs from the desk's New hire hub.</p>
+      <p>Every new starter used to mean about 23 access tickets raised by hand. I went through <b>1,600 old tickets</b> to work out what each role needs and who approves it, then turned that into rules. Now one request raises the whole batch. It's been in production since July 2026 and now runs from the desk's New hire hub.</p>
     </div>
   </article>
 
@@ -142,7 +141,7 @@
     <div>
       <h3>Vendor status dashboard</h3>
       <span class="big"><span class="n">81</span>vendor status pages watched.</span>
-      <p class="stack">Google Apps Script and Slack. Moving to Node and Docker.</p>
+      <p class="stack">Google Apps Script and Slack, moving to Node and Docker</p>
     </div>
     <div>
       <svg class="diagram diagram-d" viewBox="0 0 640 92" role="img" aria-label="Side by side trial: every incident the paid service caught was matched, plus extra catches the paid service missed">
@@ -167,8 +166,7 @@
       <rect x="213" y="84" width="68" height="32" rx="8" style="fill:none;stroke:var(--accent);stroke-width:1.2;stroke-dasharray:3 3"/>
       <text x="213" y="136" font-size="11.5" style="fill:var(--accent)" font-weight="600">extra catches</text>
     </svg>
-      <p>We paid for a service that watched vendor status pages. Nobody really knew if it was any good. I built my own and ran the two side by side for a few weeks, comparing them every day. Mine caught everything the paid one caught. It also caught outages the paid one missed. One of those was an <b>8 hour outage</b> at a Tier 1 vendor. The subscription costs around <b>$4,000 a year</b> and is set to be cancelled.</p>
-      <p>I'm now rewriting it as its own service in Docker, to run on AWS. Every parser is checked against the old version on the same inputs. That check found two problems in the old one. AWS's status feed is UTF-16. The old one read it as UTF-8. In practice, AWS was never really watched. DocuSign had also moved its status page.</p>
+      <p>We were paying for a service that watched vendor status pages. I built my own and ran the two side by side for a few weeks. Mine kept up with the paid one and caught several outages it missed. One was an <b>8 hour outage</b> at a Tier 1 vendor. The <b>$4,000 a year</b> subscription is set to be cancelled. I'm rebuilding the dashboard in Node and Docker to run on AWS.</p>
     </div>
   </article>
 
@@ -179,19 +177,18 @@
       <p class="stack">Google Apps Script web app, JavaScript, Jira and Slack APIs, GitHub</p>
     </div>
     <div>
-      <p>The desk's day used to live in a dozen places. The hub is one web app for the triage queue, ticket QA and live dashboards of what the team has resolved. Anything that writes to Jira shows you the change and asks first.</p>
-      <p>It's had dozens of versioned releases. The code is on GitHub behind protected branches and a build and verification pipeline. A few techs used it on real working days before it went wider. I presented it to the team at a company offsite. The desk runs a stable build on purpose. New things like an AI lab and an on call page get tried in a Docker sandbox first.</p>
+      <p>The hub is one web app for the desk's morning triage, ticket QA and live team numbers. Anything that writes to Jira shows you the change and asks first. It's had dozens of releases, and I presented it to the team at a company offsite. It's now being moved onto the company's AWS platform.</p>
     </div>
   </article>
 
   <article class="job" id="knowledge-base">
     <div>
       <h3>Knowledge base cleanup</h3>
-      <span class="big"><span class="n">~700</span>pages. I've reviewed over 100 of them by hand.</span>
+      <span class="big"><span class="n">~700</span>pages in the desk's knowledge base.</span>
       <p class="stack">Confluence, KCS, Jira automation. Co-leading, still going</p>
     </div>
     <div>
-      <p>The desk's knowledge base had no owners and no review cycle. A colleague and I are cleaning it up the KCS way. We've been through all of it, and I've reviewed over 100 pages myself. We wrote a page template that names an owner, and proposed a 90 day review cycle. I've also written 19 guides and runbooks.</p>
+      <p>It had no owners and no review cycle. A colleague and I are cleaning it up the KCS way. I've reviewed over 100 pages myself and written 19 guides and runbooks. We've also written a page template that names an owner for every page.</p>
     </div>
   </article>
 
@@ -202,8 +199,7 @@
       <p class="stack">Claude, scheduled agents, Jira, Slack and Confluence APIs</p>
     </div>
     <div>
-      <p>The small checks that keep a desk healthy only happen when someone remembers. I set them up to run on their own. One checks the weekly P1 handover and reminds the right people. One catches customer replies on tickets that are already resolved. One finds resolved tickets with no priority. One matches new tickets against <b>14,498 resolved ones</b> to show how we handled the same thing before.</p>
-      <p>Two of them are shared with the wider desk through a plugin catalogue we set up with Platform Engineering. In November I folded ten of them into one morning brief. Slack now only gets the urgent ones.</p>
+      <p>The small checks that keep a desk healthy only happen when someone remembers. I set about 14 of them to run on a schedule. They check the weekly P1 handover, catch customer replies on closed tickets and fix missing priorities. In November I folded ten of them into one morning brief.</p>
     </div>
   </article>
 </section>
@@ -214,9 +210,9 @@
       <div class="copy">
         <h3>Tessera</h3>
         <p class="meta">Web app and iPhone app · React, TypeScript, Supabase, Vercel, Capacitor · <a href="https://thetessera.vercel.app/">Open it</a></p>
-        <p>My friends and I play the same daily puzzles. Wordle, Connections and Queens are the main ones. I built one place for all of them. Each game is a tile. You tap it, play, and come back. If you were gone long enough, the tile ticks itself off. There's an undo. Your group shares one board and can see who's done what today. Every game has its own streak and calendar.</p>
-        <p>The tick was the hard part. It only counts a real departure, when the page actually goes hidden. A focus flicker can't fake it. If iOS kills the page while you play, it still catches you coming back. Reminders are web push, and the rules for them are written and tested in SQL. Every table has row level security, covered by database tests.</p>
-      </div>
+        <p>My friends and I play the same daily puzzles, so I built one place for them. Tap a game to play it, and when you come back it ticks itself off. Your group shares one board. Every game keeps its own streak.</p>
+        <p>The tricky part was telling a real game from a quick glance. Only the page actually going hidden counts. It still works if iOS closes the page mid game. It runs on Supabase, and every table has row level security with database tests.</p>
+        </div>
       <figure class="shots">
         <div class="phone">
           <div class="tess tess-grid" aria-label="Tessera's group grid, rebuilt here with a made up group">
@@ -245,9 +241,9 @@
         <div class="kit" aria-hidden="true"><i style="background:#004170"></i><i style="background:#da291c"></i><i style="background:#a50044"></i><i style="background:#ffffff"></i></div>
         <h3>Final Whistle</h3>
         <p class="meta">Football match predictor · Python, JavaScript, GitHub Actions</p>
-        <p>It predicts home, draw and away chances for the top leagues in ten European countries. It covers the Champions League and Europa League too. The model uses Elo ratings, recent form and a goals model. The bookmakers' prices sit next to it.</p>
-        <p>I held it to being honest. Every setting was picked on a validation set. On 4,194 matches it never saw, it gets close to the bookmakers but doesn't beat them. The write up says that plainly. It also says which betting strategies lose money. A GitHub Actions job logs a prediction for every fixture four times a day. Each prediction is its own commit. The history proves it was made before kickoff. The phone page is password protected. That's why there's no link.</p>
-      </div>
+        <p>It predicts home, draw and away chances for the top leagues in ten European countries and puts them beside the bookmakers' odds.</p>
+        <p>I held it to being honest. On 4,194 matches it never saw, it comes close to the bookmakers but doesn't beat them. The write up says that plainly. A GitHub Actions job logs every prediction before kickoff. The phone page is password protected, so there's no link.</p>
+        </div>
       <div class="shots">
         <div class="phone"><img src="assets/img/final-whistle-accumulator.png" width="390" height="1450" alt="Final Whistle's accumulator page by day: best bets per game and a build one for me target" loading="lazy"></div>
         <div class="phone"><img src="assets/img/final-whistle-leagues.png" width="390" height="844" alt="Final Whistle's league filter at night" loading="lazy"></div>
@@ -261,9 +257,9 @@
         <h3>GILD</h3>
         <p class="meta">Budget app · React, Capacitor, on my iPhone · <a href="https://gildfinance.vercel.app/">Live app</a> · <a href="https://github.com/felipereis26/gild-finance-dev">Code</a></p>
         <div class="rule"></div>
-        <p>My budget app. On payday it splits the pay across bills, savings and spending limits. The home screen shows what's safe to spend today. Bank statements import straight in. Repeat charges get flagged as subscriptions. The scan screen turns a payment screenshot into a transaction I check before saving.</p>
-        <p>Nothing leaves the phone. There's no server, no account and no bank connection. iOS can clear a web view's storage on its own. The iPhone app keeps a copy in its own files and loads it back before it starts.</p>
-      </div>
+        <p>My budget app. On payday it splits my pay across bills, savings and spending limits, and the home screen shows what's safe to spend. Bank statements import straight in.</p>
+        <p>Nothing leaves the phone. There's no server, no account and no bank connection.</p>
+        </div>
       <div class="shots">
         <div class="phone"><img src="gild-scan.jpg" width="560" height="616" alt="GILD's scan screen: upload a payment screenshot and the text is read on the phone, nothing sent anywhere" loading="lazy"></div>
       </div>
@@ -276,9 +272,9 @@
         <div class="tape" aria-hidden="true"><i style="background:#ea82a3"></i><i style="background:#74c7a6"></i><i style="background:#f0c665"></i></div>
         <h3>Tripsy</h3>
         <p class="meta">Trip planner · HTML, CSS, JavaScript, Vercel functions, an iPhone app</p>
-        <p>A trip planner my partner and I actually use. Each trip is its own page. The home page works out our leave days and moves trips from upcoming to past by itself. Adding a trip goes through a form and a small serverless function. The function commits the new page straight to GitHub, and the site redeploys.</p>
-        <p>The GitHub token can only touch that one repo and never reaches the browser. We each get a packing list per trip. Two phones saving at once can't overwrite each other. The iPhone app has every trip offline. GILD reads our trip costs through a read only feed. The site holds our real travel dates. It sits behind a login. I don't link to it here.</p>
-      </div>
+        <p>A trip planner my partner and I use. Each trip is its own page, and the home page works out our leave days. New trips go in through a form that commits the page straight to GitHub.</p>
+        <p>We each have a packing list per trip, and GILD reads our trip costs from it. It holds our real travel dates, so it sits behind a login and I don't link to it.</p>
+        </div>
       <div class="shots">
         <div class="phone"><img src="tripsy-form.jpg" width="560" height="884" alt="Tripsy's add a trip form, scrapbook style: destination, dates, leave days, cost and one line on why" loading="lazy"></div>
       </div>
@@ -292,37 +288,34 @@
     <p>The smaller things, one line each.</p>
   </div>
   <div class="ledger">
-    <div class="entry"><span class="yr num">2026</span><div><b>TicketFixer</b><span>A ticket workbench for the desk. It fixes a ticket's type and fields. It finds how the same request was handled before, out of 14,498 resolved tickets. It's had 33 releases and is in the company's Claude plugin catalogue.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>SLA watch</b><span>Watches the first response clock on a queue. It drafts a reply as soon as a clock starts. A breached ticket nobody's answered stays at the top. Posting always asks first.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>Form Finder</b><span>Tells you how to get access to any of 203 internal apps. It shows the form, the approver and what to put in it. On real past requests, the right app is in the top three 96.5% of the time.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>Access request triage</b><span>Reads incoming access tickets and checks them against the access guides. It drafts the right redirect or approval route.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>Team numbers dashboard</b><span>Shows resolved totals, per person averages and daily targets. The numbers come from live Jira queries.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>NATS role recommender</b><span>Recommends the right production access role from what's on the ticket. It works from a routing matrix we keep up to date.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>Weekly handover check</b><span>Checks the P1 incident handover doc every week and reminds the right call leaders.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>Late replies check</b><span>Catches customer replies on tickets that are already resolved. Those replies still get answered.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>New hire location check</b><span>Checks every new starter once a week. Laptops then ship to the right office in Ireland, NI or the UK.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>Missing priorities sweep</b><span>Finds resolved tickets that never got a priority and sets one. Each fix carries its reasoning.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>Mentoring</b><span>Planned the first weeks for a new analyst on the London desk. It has quizzes, a ticket tracker and QA scoring based on the desk's own scorecard.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>Training report</b><span>The new hire training report, rebuilt with HR course tracking.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>Onboarding comparison</b><span>Compared the Denver and London new hire training and lined up the differences.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>Leeds office audit</b><span>Checked a twelve desk build out on site. That covered meeting rooms, booking tablets, screens and power.</span></div></div>
-    <div class="entry"><span class="yr num">2025–26</span><div><b>Guides and runbooks</b><span>19 Confluence pages. They cover office runbooks, WiFi guides and moving Claude to a new Mac.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>Google Cloud 2 step verification</b><span>Got the desk ready for a mandatory security rollout before its deadline.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>Executive laptop moves</b><span>Moved senior staff to new laptops. I arranged each move through their assistants.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>Diploma in Cybersecurity</b><span>UCD Professional Academy. I did it alongside the full time job and passed with Distinction.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>Lunch and learn</b><span>A talk to the desk on these tools. I demoed the ticket workbench live.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b><a href="https://github.com/FelipeReis26/dev-hub">Dev hub</a></b><span>A local dashboard of everything I'm building and the Claude sessions in each. It also holds an idea backlog and a scaffolder for new projects.</span></div></div>
-    <div class="entry"><span class="yr num">2026</span><div><b>This site</b><span>Built by hand with no framework. It's hosted on GitHub Pages.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>TicketFixer</b><span>Fixes a ticket's type and fields and finds the closest match among 14,498 resolved tickets. It's on release 33 in the company's Claude plugin catalogue.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>SLA watch</b><span>Drafts a first reply as soon as a ticket's clock starts and keeps breached tickets at the top.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Form Finder</b><span>Shows how to get access to any of 203 internal apps. The right app is in the top three for 96.5% of real past requests.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Access request triage</b><span>Checks incoming access tickets against the access guides and drafts the right route.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Team numbers dashboard</b><span>Shows the team's resolved totals, averages and daily targets from live Jira.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>NATS role recommender</b><span>Picks the right production access role from what's on the ticket.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>New hire location check</b><span>Checks new starters every week so their laptops ship to the right office.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Mentoring</b><span>Built quizzes, a ticket tracker and QA scoring for a new analyst's first weeks in London.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Training report</b><span>Rebuilt the new hire training report to track HR courses.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Onboarding comparison</b><span>Compared the Denver and London new hire training and lined them up.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Leeds office audit</b><span>Checked a twelve desk office build out on site.</span></div></div>
+    <div class="entry"><span class="yr num">2025–26</span><div><b>Guides and runbooks</b><span>19 Confluence guides and runbooks, from office WiFi to moving Claude to a new Mac.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Google Cloud 2 step verification</b><span>Got the desk ready for a mandatory Google Cloud security change before the deadline.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Executive laptop moves</b><span>Moved senior staff to new laptops through their assistants.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Diploma in Cybersecurity</b><span>UCD Professional Academy, done alongside the full time job. Passed with Distinction.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Lunch and learn</b><span>Gave the desk a talk on these tools and demoed the ticket workbench live.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b><a href="https://github.com/FelipeReis26/dev-hub">Dev hub</a></b><span>A local dashboard of my projects, their Claude sessions and an idea backlog.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>This site</b><span>Built by hand and hosted on GitHub Pages. No framework.</span></div></div>
   </div>
 </section>
 
 <section class="wrap sec closing">
   <div class="about">
     <h2 id="about">About</h2>
-    <p>In the last year I resolved around 1,400 tickets at a 98% resolution rate. Along the way I started automating the repetitive parts with AI. I have a BSc in Computing and a UCD Diploma in Cybersecurity. I got a Distinction in each.</p>
+    <p>In the last year I resolved around 1,400 tickets at a 98% resolution rate. Along the way I started automating the repetitive parts with AI. I got a Distinction in my BSc in Computing and in my UCD Diploma in Cybersecurity.</p>
     <ul>
-      <li>I was born the year the PlayStation 2 came out. I grew up on it.</li>
-      <li>Portuguese is my first language. I grew up in Dublin.</li>
+      <li>I was born the year the PlayStation 2 came out and grew up on it.</li>
+      <li>Portuguese is my first language, and I grew up in Dublin.</li>
       <li>My partner and I plan trips in so much detail that I built an app for it.</li>
       <li>Formula 1 on Sundays. Fantasy Premier League all season. A crossword most days.</li>
     </ul>
