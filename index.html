@@ -4,7 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Felipe Reis · IT support in Dublin</title>
-<meta name="description" content="Felipe Reis, IT support in Dublin. The tools I've built for a busy service desk, and the apps I build for myself.">
+<meta name="description" content="IT support in Dublin. I build tools for a busy service desk. I also build apps for me and my friends.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://felipereis26.github.io/">
+<meta property="og:title" content="Felipe Reis · IT support in Dublin">
+<meta property="og:description" content="IT support in Dublin. I build tools for a busy service desk. I also build apps for me and my friends.">
+<meta property="og:image" content="https://felipereis26.github.io/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Felipe Reis, IT support in Dublin, with his apps Tessera, Final Whistle and GILD on phone screens">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f0f12" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22%23111114%22%2F%3E%3Cpath%20d%3D%22M22%2016h22v8H31v8h11v8H31v8h-9z%22%20fill%3D%22%23ffffff%22%2F%3E%3C%2Fsvg%3E">
@@ -54,7 +63,7 @@
             <button class="tile" style="--c:#e8a43c" data-game="Tango">Tango</button>
             <button class="tile done" style="--c:#3f8ee8" data-game="Zip">Zip</button>
             <button class="tile" style="--c:#e9623e" data-game="Pips">Pips</button>
-            <button class="tile" style="--c:#2e9e57" data-game="Futbol11">Futbol11</button>
+            <button class="tile" style="--c:#2e9e57" data-game="Nerdle">Nerdle</button>
             <button class="tile" style="--c:#f2c14e" data-game="The Mini">The Mini</button>
           </div>
           <div class="tess-week" aria-hidden="true">
@@ -132,8 +141,8 @@
   <article class="job" id="status-dashboard">
     <div>
       <h3>Vendor status dashboard</h3>
-      <span class="big"><span class="n">81</span>vendor status pages watched, with Slack alerts when one goes down.</span>
-      <p class="stack">Google Apps Script and Slack, now being rewritten in Node and Docker</p>
+      <span class="big"><span class="n">81</span>vendor status pages watched.</span>
+      <p class="stack">Google Apps Script and Slack. Moving to Node and Docker.</p>
     </div>
     <div>
       <svg class="diagram diagram-d" viewBox="0 0 640 92" role="img" aria-label="Side by side trial: every incident the paid service caught was matched, plus extra catches the paid service missed">
@@ -159,7 +168,7 @@
       <text x="213" y="136" font-size="11.5" style="fill:var(--accent)" font-weight="600">extra catches</text>
     </svg>
       <p>We paid for a service that watched vendor status pages. Nobody really knew if it was any good. I built my own and ran the two side by side for a few weeks, comparing them every day. Mine caught everything the paid one caught. It also caught outages the paid one missed. One of those was an <b>8 hour outage</b> at a Tier 1 vendor. The subscription costs around <b>$4,000 a year</b> and is set to be cancelled.</p>
-      <p>I'm now rewriting it as its own service in Docker, to run on AWS. Every parser is checked against the old version on the same inputs. That check found two problems in the old one. AWS's status feed is UTF-16 and was being read as UTF-8, which meant AWS was never really watched. DocuSign had also moved its status page.</p>
+      <p>I'm now rewriting it as its own service in Docker, to run on AWS. Every parser is checked against the old version on the same inputs. That check found two problems in the old one. AWS's status feed is UTF-16. The old one read it as UTF-8. In practice, AWS was never really watched. DocuSign had also moved its status page.</p>
     </div>
   </article>
 
@@ -178,7 +187,7 @@
   <article class="job" id="knowledge-base">
     <div>
       <h3>Knowledge base cleanup</h3>
-      <span class="big"><span class="n">~700</span>pages, over 100 of them reviewed by hand so far.</span>
+      <span class="big"><span class="n">~700</span>pages. I've reviewed over 100 of them by hand.</span>
       <p class="stack">Confluence, KCS, Jira automation. Co-leading, still going</p>
     </div>
     <div>
@@ -205,7 +214,7 @@
       <div class="copy">
         <h3>Tessera</h3>
         <p class="meta">Web app and iPhone app · React, TypeScript, Supabase, Vercel, Capacitor · <a href="https://thetessera.vercel.app/">Open it</a></p>
-        <p>My friends and I play the same daily puzzles: Wordle, Connections, Queens and more. I built one place for all of them. Each game is a tile. You tap it, play, and come back. If you were gone long enough, the tile ticks itself off. There's an undo. Your group shares one board and can see who's done what today. Every game has its own streak and calendar.</p>
+        <p>My friends and I play the same daily puzzles. Wordle, Connections and Queens are the main ones. I built one place for all of them. Each game is a tile. You tap it, play, and come back. If you were gone long enough, the tile ticks itself off. There's an undo. Your group shares one board and can see who's done what today. Every game has its own streak and calendar.</p>
         <p>The tick was the hard part. It only counts a real departure, when the page actually goes hidden. A focus flicker can't fake it. If iOS kills the page while you play, it still catches you coming back. Reminders are web push, and the rules for them are written and tested in SQL. Every table has row level security, covered by database tests.</p>
       </div>
       <figure class="shots">
@@ -236,8 +245,8 @@
         <div class="kit" aria-hidden="true"><i style="background:#004170"></i><i style="background:#da291c"></i><i style="background:#a50044"></i><i style="background:#ffffff"></i></div>
         <h3>Final Whistle</h3>
         <p class="meta">Football match predictor · Python, JavaScript, GitHub Actions</p>
-        <p>It predicts home, draw and away chances for the top leagues in ten European countries, plus the Champions League and Europa League. The model uses Elo ratings, recent form and a goals model. The bookmakers' prices sit next to it.</p>
-        <p>I held it to being honest. Every setting was picked on a validation set. On 4,194 matches it never saw, it gets close to the bookmakers but doesn't beat them. The write up says that plainly. It also says which betting strategies lose money. A GitHub Actions job logs a prediction for every fixture four times a day. Each prediction is its own commit, which proves it was made before kickoff. The phone page is password protected, so there's no link.</p>
+        <p>It predicts home, draw and away chances for the top leagues in ten European countries. It covers the Champions League and Europa League too. The model uses Elo ratings, recent form and a goals model. The bookmakers' prices sit next to it.</p>
+        <p>I held it to being honest. Every setting was picked on a validation set. On 4,194 matches it never saw, it gets close to the bookmakers but doesn't beat them. The write up says that plainly. It also says which betting strategies lose money. A GitHub Actions job logs a prediction for every fixture four times a day. Each prediction is its own commit. The history proves it was made before kickoff. The phone page is password protected. That's why there's no link.</p>
       </div>
       <div class="shots">
         <div class="phone"><img src="assets/img/final-whistle-accumulator.png" width="390" height="1450" alt="Final Whistle's accumulator page by day: best bets per game and a build one for me target" loading="lazy"></div>
@@ -268,7 +277,7 @@
         <h3>Tripsy</h3>
         <p class="meta">Trip planner · HTML, CSS, JavaScript, Vercel functions, an iPhone app</p>
         <p>A trip planner my partner and I actually use. Each trip is its own page. The home page works out our leave days and moves trips from upcoming to past by itself. Adding a trip goes through a form and a small serverless function. The function commits the new page straight to GitHub, and the site redeploys.</p>
-        <p>The GitHub token can only touch that one repo and never reaches the browser. We each get a packing list per trip. Two phones saving at once can't overwrite each other. The iPhone app has every trip offline. GILD reads our trip costs through a read only feed. The site holds our real travel dates, so it's behind a login and there's no link.</p>
+        <p>The GitHub token can only touch that one repo and never reaches the browser. We each get a packing list per trip. Two phones saving at once can't overwrite each other. The iPhone app has every trip offline. GILD reads our trip costs through a read only feed. The site holds our real travel dates. It sits behind a login. I don't link to it here.</p>
       </div>
       <div class="shots">
         <div class="phone"><img src="tripsy-form.jpg" width="560" height="884" alt="Tripsy's add a trip form, scrapbook style: destination, dates, leave days, cost and one line on why" loading="lazy"></div>
