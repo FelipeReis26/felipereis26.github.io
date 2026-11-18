@@ -3,139 +3,95 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Felipe Reis — IT support engineer who automates</title>
-<meta name="description" content="Felipe Reis, Dublin. IT support and service desk engineer building automation with AI. Case studies and projects.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%231f3864%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2246%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-weight%3D%22600%22%20font-size%3D%2242%22%20fill%3D%22%23faf8f4%22%3EF%3C%2Ftext%3E%3C%2Fsvg%3E">
+<title>Felipe Reis · IT support in Dublin</title>
+<meta name="description" content="Felipe Reis, IT support in Dublin. The tools I've built for a busy service desk, and the apps I build for myself.">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f0f12" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22%23111114%22%2F%3E%3Cpath%20d%3D%22M22%2016h22v8H31v8h11v8H31v8h-9z%22%20fill%3D%22%23ffffff%22%2F%3E%3C%2Fsvg%3E">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#faf8f4; --ink:#1d2530; --muted:#5b6470; --accent:#1f3864; --card:#fffdf9; --line:#e7e2d8; --chip:#f0ece4;
-    --shadow:0 10px 26px -18px rgba(31,56,100,.4); --danger:#a0342c;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{ --bg:#12161c; --ink:#e8e6e1; --muted:#9aa4b0; --accent:#8fb0e8; --card:#1a2029; --line:#2a313c; --chip:#232b37;
-    --shadow:0 10px 26px -18px rgba(0,0,0,.7); --danger:#e8968d; }
-  }
-  *{box-sizing:border-box}
-  html{scrollbar-color:var(--line) transparent}
-  body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.68 "IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-  body::before{content:"";display:block;height:3px;background:var(--accent)}
-  ::selection{background:var(--accent);color:var(--bg)}
-  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
-  main{max-width:760px;margin:0 auto;padding:56px 22px 80px}
-  a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px}
-  header h1{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:clamp(2.5rem,7vw,3.4rem);line-height:1.05;letter-spacing:-.015em;margin:0 0 10px}
-  header p.tag{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:1.18rem;color:var(--muted);margin:0 0 20px;max-width:34em}
-  .links a{margin-right:20px;font-weight:600;font-size:.95rem}
-  @media (prefers-reduced-motion: no-preference){
-    header{animation:rise .8s cubic-bezier(.16,1,.3,1) both}
-    @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-  }
-  h2{font-size:.8rem;font-weight:600;color:var(--accent);border-bottom:1px solid var(--line);padding-bottom:8px;margin:52px 0 20px;letter-spacing:.14em;text-transform:uppercase}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:16px;scroll-margin-top:24px;
-    transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease}
-  .card:hover{border-color:color-mix(in srgb,var(--accent) 30%,var(--line));box-shadow:var(--shadow);transform:translateY(-1px)}
-  @media (prefers-reduced-motion: reduce){ .card:hover{transform:none} }
-  .card h3{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:1.4rem;letter-spacing:-.01em;line-height:1.2;margin:0 0 3px}
-  .card h3 a.repo{font-family:"IBM Plex Sans",sans-serif;font-size:1.05rem;letter-spacing:0}
-  .card h3 > a.repo:first-child{font-family:"Newsreader",Georgia,serif;font-size:1.4rem;letter-spacing:-.01em}
-  .card .meta{color:var(--muted);font-size:.8rem;letter-spacing:.02em;margin-bottom:12px}
-  .card p{margin:0 0 10px;max-width:66ch}
-  .card p:last-child{margin-bottom:0}
-  .chips{margin-top:14px}
-  .chip{display:inline-block;background:var(--chip);border-radius:999px;padding:3px 12px;font-size:.74rem;font-weight:500;letter-spacing:.03em;color:var(--muted);margin:0 6px 6px 0}
-  .repo{font-weight:600}
-  .note{color:var(--muted);font-size:.9rem;margin:6px 0 18px;max-width:64ch}
-  footer{margin-top:64px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);padding-top:20px}
-  footer em{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:1rem}
-  strong{font-weight:650}
-  .result{color:var(--accent);font-weight:600;font-size:.95rem;margin:0 0 12px}
-  .diagram{display:block;width:100%;height:auto;margin:4px 0 14px}
-  .diagram text{font-family:"IBM Plex Sans",sans-serif;fill:var(--muted)}
-  .diagram .dk{fill:var(--ink)}
-  .diagram .ac{fill:var(--accent)}
-  .diagram .box{fill:none;stroke:var(--line);stroke-width:1.2;rx:8}
-  .diagram .arrow{stroke:var(--accent);stroke-width:1.5;fill:none}
-  .diagram-m{display:none}
-  @media (max-width:560px){
-    .diagram-d{display:none}
-    .diagram-m{display:block}
-  }
-  .shot{float:right;width:min(230px,42%);height:auto;margin:4px 0 12px 18px;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
-  .chips{clear:both}
-  @media (max-width:560px){
-    .shot{float:none;display:block;width:100%;max-width:300px;margin:4px auto 14px}
-  }
-  .nav{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:.85rem}
-  .nav a{margin-right:16px;color:var(--muted);font-weight:500}
-  .nav a:hover{color:var(--accent)}
-  .arch-row{display:grid;grid-template-columns:64px 1fr auto;gap:14px;padding:11px 2px;border-bottom:1px solid var(--line);align-items:baseline}
-  .arch-row .yr{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
-  .arch-row .nm{font-weight:600;font-size:.95rem}
-  .arch-row .ds{color:var(--muted);font-size:.9rem}
-  .tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-  .tg{font-size:.72rem;background:var(--chip);border-radius:999px;padding:2px 9px;color:var(--muted);letter-spacing:.03em;white-space:nowrap}
-  @media(max-width:560px){.arch-row{grid-template-columns:48px 1fr}.tags{display:none}}
-  .facts{list-style:none;padding:0;margin:0}
-  .facts li{padding:6px 0 6px 22px;position:relative}
-  .facts li::before{content:"";position:absolute;left:4px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
-  form.ticket{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;max-width:560px}
-  .ticket label{display:block;font-size:.75rem;font-weight:600;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin:14px 0 6px}
-  .ticket label:first-child{margin-top:0}
-  .ticket input,.ticket select,.ticket textarea{width:100%;font:inherit;font-size:.95rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 12px}
-  .ticket input:focus,.ticket select:focus,.ticket textarea:focus{outline:none;border-color:var(--accent)}
-  .ticket textarea{min-height:110px;resize:vertical}
-  .ticket button{margin-top:16px;font:inherit;font-weight:600;font-size:.95rem;color:var(--bg);background:var(--accent);border:none;border-radius:8px;padding:10px 22px;cursor:pointer}
-  .ticket button:hover{opacity:.9}
-  .ticket .err{display:none;color:var(--danger);font-size:.85rem;margin-top:10px}
-  .ticket .note{color:var(--muted);font-size:.8rem;margin-top:12px}
-  @media (min-width:1080px){
-    main{max-width:1140px}
-    header p.tag{max-width:44em}
-    .colwrap{columns:2;column-gap:20px}
-    .colwrap .card{break-inside:avoid;margin-bottom:20px}
-    .archwrap{columns:2;column-gap:44px}
-    .arch-row{break-inside:avoid}
-    .duo{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
-    .duo h2{margin-top:52px}
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Figtree:wght@400..700&family=Pixelify+Sans:wght@600&family=Big+Shoulders+Display:wght@900&family=Cinzel:wght@600&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+
+<header class="wrap top">
+  <a class="me" href="#">Felipe Reis</a>
+  <nav aria-label="Sections">
+    <a href="#work">Work</a>
+    <a class="opt2" href="#apps">My apps</a>
+    <a class="opt" href="#everything">Everything else</a>
+    <a class="opt" href="#about">About</a>
+    <a href="#contact">Raise a ticket</a>
+  </nav>
+</header>
+
 <main>
-  <header>
-    <h1>Felipe Reis</h1>
-    <p class="tag">IT support engineer in Dublin. I work on a busy service desk and build the tools that make it less busy.</p>
-    <div class="links">
-      <a href="https://github.com/felipereis26">GitHub</a>
-      <a href="https://www.linkedin.com/in/feliperei5/">LinkedIn</a>
-      <a href="Felipe-Reis-CV.pdf">CV (PDF)</a>
-      <a href="mailto:Felipe26lpe@gmail.com">Email</a>
+<section class="wrap hero" aria-labelledby="hi">
+  <div>
+    <h1 id="hi">Felipe Reis</h1>
+    <p class="line">IT support in Dublin. I work on a busy service desk and <b>build the tools it uses</b>. I also build apps for me and my friends.</p>
+    <div class="acts">
+      <a class="btn" href="#contact">Raise a ticket</a>
+      <a class="plain" href="Felipe-Reis-CV.pdf">CV</a>
+      <a class="plain" href="https://www.linkedin.com/in/feliperei5/">LinkedIn</a>
+      <a class="plain" href="https://github.com/felipereis26">GitHub</a>
     </div>
-    <nav class="nav">
-      <a href="#work">Work</a>
-      <a href="#everything">Everything else</a>
-      <a href="#about">About</a>
-      <a href="#contact">Raise a ticket</a>
-    </nav>
-  </header>
+  </div>
 
-  <h2>About</h2>
-  <p>I'm a Service Desk Analyst III at a global sports betting and gaming company, supporting a workforce across the US, UK and Ireland. This past year I resolved around 1,400 tickets at a 98% resolution rate, and along the way I started automating the repetitive parts of the job with AI. That grew into a set of internal tools the desk now uses daily. I have a BSc in Computing and a UCD Professional Academy Diploma in Cybersecurity, both with Distinction, and I'm fluent in English and Portuguese.</p>
+  <div class="screens">
+    <figure class="screen">
+      <div class="phone">
+        <div class="tess" aria-label="A working copy of the Tessera board">
+          <div class="tess-head"><b>Tessera</b><span id="tessCount" class="num"></span></div>
+          <div class="tess-day">Today</div>
+          <div class="tiles" id="tessBoard">
+            <button class="tile done" style="--c:#6aad65" data-game="Wordle">Wordle</button>
+            <button class="tile" style="--c:#b5a6ff" data-game="Spelling Bee">Spelling Bee</button>
+            <button class="tile done" style="--c:#85bdb4" data-game="Strands">Strands</button>
+            <button class="tile" style="--c:#a27be6" data-game="Queens">Queens</button>
+            <button class="tile" style="--c:#e8a43c" data-game="Tango">Tango</button>
+            <button class="tile done" style="--c:#3f8ee8" data-game="Zip">Zip</button>
+            <button class="tile" style="--c:#e9623e" data-game="Pips">Pips</button>
+            <button class="tile" style="--c:#2e9e57" data-game="Futbol11">Futbol11</button>
+            <button class="tile" style="--c:#f2c14e" data-game="The Mini">The Mini</button>
+          </div>
+          <div class="tess-week" aria-hidden="true">
+            <span>This week</span>
+            <div class="week"><i class="w9"></i><i class="w7"></i><i class="w9"></i><i class="w5"></i><i class="w8"></i><i class="w9"></i><i class="w3"></i></div>
+          </div>
+          <div class="tess-group" aria-hidden="true"><span class="face" style="--f:#6aad65">Y</span><span class="face" style="--f:#e8a43c">A</span><span class="face" style="--f:#3f8ee8">B</span><em>2 of your group played Wordle today</em></div>
+          <div class="tess-foot" id="tessFoot" aria-live="polite"></div>
+        </div>
+      </div>
+      <figcaption><b>Tessera</b>A working copy of the board. Tap a tile.</figcaption>
+    </figure>
+    <figure class="screen">
+      <div class="phone"><img src="assets/img/final-whistle-predictor.png" width="390" height="844" alt="Final Whistle on a phone: Paris SG against Barcelona, 42% home win, 26% draw, 32% away win, with fair odds and where to watch"></div>
+      <figcaption><b>Final Whistle</b>A football predictor</figcaption>
+    </figure>
+    <figure class="screen screen-gild">
+      <div class="phone shot-fit" style="aspect-ratio:560/616;background:#0e0f12"><img src="gild-scan.jpg" width="560" height="616" alt="GILD's scan screen: upload a payment screenshot and the text is read on the phone, nothing sent anywhere"></div>
+      <figcaption><b>GILD</b>My budget app</figcaption>
+    </figure>
+  </div>
+</section>
 
-  <h2 id="work">Work case studies</h2>
-  <p class="note">These are internal tools, so no links or screenshots; the diagrams use the same numbers described in the text.</p>
+<section class="wrap sec" id="work" aria-labelledby="work-h">
+  <div class="sec-head">
+    <h2 id="work-h">At work</h2>
+    <p>I'm a Service Desk Analyst III at a global sports betting and gaming company. The desk supports people in the US, UK and Ireland. These tools are internal. There are no screenshots or links here, only what they do and the numbers.</p>
+  </div>
 
-  <div class="colwrap">
-<div class="card" id="new-hire-tool">
-    <h3>New hire access provisioning tool</h3>
-    <div class="meta">Google Apps Script, JavaScript, Jira APIs, built with Anthropic Claude</div>
-    <p class="result">Turns one new hire request into around 23 correctly typed Jira tickets. In production since July 2026, now run from the desk’s New hire hub.</p>
-    <svg class="diagram diagram-d" viewBox="0 0 640 104" role="img" aria-label="Flow: one new hire request, through a routing matrix built from 1,600 historical tickets and safety gates, becomes around 23 Jira tickets">
+  <article class="job" id="new-hire-tool">
+    <div>
+      <h3>New hire access</h3>
+      <span class="big"><span class="n">~23</span>access tickets from one new hire request.</span>
+      <p class="stack">Google Apps Script, JavaScript, Jira APIs, built with Claude</p>
+    </div>
+    <div>
+      <svg class="diagram diagram-d" viewBox="0 0 640 104" role="img" aria-label="Flow: one new hire request, through a routing matrix built from 1,600 historical tickets and safety gates, becomes around 23 Jira tickets">
       <defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="currentColor" class="ac" style="fill:var(--accent)"/></marker></defs>
       <rect class="box" x="6" y="22" width="130" height="44" rx="8"/>
       <text x="71" y="41" text-anchor="middle" font-size="12" class="dk" font-weight="600">1 new hire</text>
@@ -151,7 +107,7 @@
       <text x="569" y="57" text-anchor="middle" font-size="11.5">typed &amp; routed in Jira</text>
       <text x="320" y="96" text-anchor="middle" font-size="11.5">every write journalled · resumable · schema checked against live Jira first</text>
     </svg>
-    <svg class="diagram diagram-m" viewBox="0 0 340 240" role="img" aria-label="Flow: one new hire request, through a routing matrix built from 1,600 historical tickets and safety gates, becomes around 23 Jira tickets">
+      <svg class="diagram diagram-m" viewBox="0 0 340 240" role="img" aria-label="Flow: one new hire request, through a routing matrix built from 1,600 historical tickets and safety gates, becomes around 23 Jira tickets">
       <defs><marker id="ahm" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" style="fill:var(--accent)"/></marker></defs>
       <rect class="box" x="70" y="6" width="200" height="44" rx="8"/>
       <text x="170" y="24" text-anchor="middle" font-size="12" class="dk" font-weight="600">1 new hire</text>
@@ -168,17 +124,19 @@
       <text x="170" y="216" text-anchor="middle" font-size="11.5">every write journalled &#183; resumable</text>
       <text x="170" y="232" text-anchor="middle" font-size="11.5">schema checked against live Jira first</text>
     </svg>
-    <p><strong>Problem:</strong> every new hire needed around 23 correctly typed access tickets raised by hand, slow, error prone, and different every time depending on role.</p>
-    <p><strong>Built:</strong> a tool that turns one new hire request into the complete batch. The routing rules came from reviewing roughly 1,600 historical tickets to establish what each role actually needs and who approves it.</p>
-    <p><strong>Safety:</strong> read only test mode by default, multiple typed confirmations before anything writes to production, a live schema check against Jira before every run, and a crash resumable journal so an interrupted batch never creates duplicates.</p>
-    <p><strong>Outcome:</strong> vetted with subject matter experts, signed off for production, usable by any tech on the desk. Since October the day one requester runs from the New hire hub instead of a tab in the automation hub.</p>
-  </div>
+      <p>Every new starter used to mean raising around 23 access tickets by hand. The set changed every time, depending on the role. I went through about <b>1,600 old tickets</b> to work out what each role needs and who signs it off. Those findings became the rules.</p>
+      <p>It runs in test mode by default. Before every run it checks Jira is set up the way it expects. It asks twice before it writes anything for real. A journal means a run that stops halfway never makes duplicates. The subject matter experts signed it off, and it's been in production since July 2026. Since October it runs from the desk's New hire hub.</p>
+    </div>
+  </article>
 
-  <div class="card" id="status-dashboard">
-    <h3>Vendor status monitoring dashboard</h3>
-    <div class="meta">Google Apps Script web app, Slack alerting · now being rewritten as a Node service in Docker</div>
-    <p class="result">Matched a paid service and caught outages it missed. Around $4,000 a year set to be saved.</p>
-    <svg class="diagram diagram-d" viewBox="0 0 640 92" role="img" aria-label="Side by side trial: every incident the paid service caught was matched, plus extra catches the paid service missed">
+  <article class="job" id="status-dashboard">
+    <div>
+      <h3>Vendor status dashboard</h3>
+      <span class="big"><span class="n">81</span>vendor status pages watched, with Slack alerts when one goes down.</span>
+      <p class="stack">Google Apps Script and Slack, now being rewritten in Node and Docker</p>
+    </div>
+    <div>
+      <svg class="diagram diagram-d" viewBox="0 0 640 92" role="img" aria-label="Side by side trial: every incident the paid service caught was matched, plus extra catches the paid service missed">
       <text x="6" y="30" font-size="11.5" class="dk" font-weight="600">paid service</text>
       <text x="6" y="66" font-size="11.5" class="dk" font-weight="600">this dashboard</text>
       <g>
@@ -190,7 +148,7 @@
       <text x="636" y="30" font-size="11.5" text-anchor="end">incidents matched</text>
       <text x="636" y="66" font-size="11.5" text-anchor="end" style="fill:var(--accent)" font-weight="600">extra catches</text>
     </svg>
-    <svg class="diagram diagram-m" viewBox="0 0 340 150" role="img" aria-label="Side by side trial: every incident the paid service caught was matched, plus extra catches the paid service missed">
+      <svg class="diagram diagram-m" viewBox="0 0 340 150" role="img" aria-label="Side by side trial: every incident the paid service caught was matched, plus extra catches the paid service missed">
       <text x="6" y="18" font-size="11.5" class="dk" font-weight="600">paid service</text>
       <circle cx="14" cy="38" r="5" style="fill:var(--muted)"/><circle cx="48" cy="38" r="5" style="fill:var(--muted)"/><circle cx="82" cy="38" r="5" style="fill:var(--muted)"/><circle cx="116" cy="38" r="5" style="fill:var(--muted)"/><circle cx="150" cy="38" r="5" style="fill:var(--muted)"/><circle cx="184" cy="38" r="5" style="fill:var(--muted)"/>
       <text x="210" y="42" font-size="11.5">incidents matched</text>
@@ -200,154 +158,188 @@
       <rect x="213" y="84" width="68" height="32" rx="8" style="fill:none;stroke:var(--accent);stroke-width:1.2;stroke-dasharray:3 3"/>
       <text x="213" y="136" font-size="11.5" style="fill:var(--accent)" font-weight="600">extra catches</text>
     </svg>
-    <p><strong>Problem:</strong> the team paid for a third party service to watch vendor status pages, and nobody knew if it was actually good.</p>
-    <p><strong>Built:</strong> a dashboard monitoring 81 vendor status pages with Slack alerts, suppression policies and alert history.</p>
-    <p><strong>Proof:</strong> instead of switching on faith, I ran a multi week side by side trial against the paid tool, with an automated comparison every day. The review tracked what my dashboard missed just as carefully as what it caught. It matched the paid tool's incident coverage and caught several outages it missed, including an 8 hour Tier 1 vendor incident.</p>
-    <p><strong>Rewrite:</strong> it is now being rebuilt as a standalone Node service in a Docker container, heading for AWS, with every parser tested side by side against the old version on the same inputs. That comparison turned up two things the old version had been missing: the AWS status feed is UTF-16, which it had been reading as UTF-8, so AWS had never really been monitored, and DocuSign had moved its status page to a new address.</p>
-    <p><strong>Outcome:</strong> the subscription (around $4,000 a year) is set to be cancelled.</p>
+      <p>We paid for a service that watched vendor status pages. Nobody really knew if it was any good. I built my own and ran the two side by side for a few weeks, comparing them every day. Mine caught everything the paid one caught. It also caught outages the paid one missed. One of those was an <b>8 hour outage</b> at a Tier 1 vendor. The subscription costs around <b>$4,000 a year</b> and is set to be cancelled.</p>
+      <p>I'm now rewriting it as its own service in Docker, to run on AWS. Every parser is checked against the old version on the same inputs. That check found two problems in the old one. AWS's status feed is UTF-16 and was being read as UTF-8, which meant AWS was never really watched. DocuSign had also moved its status page.</p>
+    </div>
+  </article>
+
+  <article class="job" id="automation-hub">
+    <div>
+      <h3>The desk's automation hub</h3>
+      <span class="big">Morning triage, ticket QA and the team's numbers in one app.</span>
+      <p class="stack">Google Apps Script web app, JavaScript, Jira and Slack APIs, GitHub</p>
+    </div>
+    <div>
+      <p>The desk's day used to live in a dozen places. The hub is one web app for the triage queue, ticket QA and live dashboards of what the team has resolved. Anything that writes to Jira shows you the change and asks first.</p>
+      <p>It's had dozens of versioned releases. The code is on GitHub behind protected branches and a build and verification pipeline. A few techs used it on real working days before it went wider. I presented it to the team at a company offsite. The desk runs a stable build on purpose. New things like an AI lab and an on call page get tried in a Docker sandbox first.</p>
+    </div>
+  </article>
+
+  <article class="job" id="knowledge-base">
+    <div>
+      <h3>Knowledge base cleanup</h3>
+      <span class="big"><span class="n">~700</span>pages, over 100 of them reviewed by hand so far.</span>
+      <p class="stack">Confluence, KCS, Jira automation. Co-leading, still going</p>
+    </div>
+    <div>
+      <p>The desk's knowledge base had no owners and no review cycle. A colleague and I are cleaning it up the KCS way. We've been through all of it, and I've reviewed over 100 pages myself. We wrote a page template that names an owner, and proposed a 90 day review cycle. I've also written 19 guides and runbooks.</p>
+    </div>
+  </article>
+
+  <article class="job" id="automation-fleet">
+    <div>
+      <h3>Scheduled checks</h3>
+      <span class="big"><span class="n">~14</span>checks that run whether anyone remembers them or not.</span>
+      <p class="stack">Claude, scheduled agents, Jira, Slack and Confluence APIs</p>
+    </div>
+    <div>
+      <p>The small checks that keep a desk healthy only happen when someone remembers. I set them up to run on their own. One checks the weekly P1 handover and reminds the right people. One catches customer replies on tickets that are already resolved. One finds resolved tickets with no priority. One matches new tickets against <b>14,498 resolved ones</b> to show how we handled the same thing before.</p>
+      <p>Two of them are shared with the wider desk through a plugin catalogue we set up with Platform Engineering. In November I folded ten of them into one morning brief. Slack now only gets the urgent ones.</p>
+    </div>
+  </article>
+</section>
+
+<section id="apps" aria-label="My apps">
+  <article class="band b-tessera" id="tessera">
+    <div class="wrap">
+      <div class="copy">
+        <h3>Tessera</h3>
+        <p class="meta">Web app and iPhone app · React, TypeScript, Supabase, Vercel, Capacitor · <a href="https://thetessera.vercel.app/">Open it</a></p>
+        <p>My friends and I play the same daily puzzles: Wordle, Connections, Queens and more. I built one place for all of them. Each game is a tile. You tap it, play, and come back. If you were gone long enough, the tile ticks itself off. There's an undo. Your group shares one board and can see who's done what today. Every game has its own streak and calendar.</p>
+        <p>The tick was the hard part. It only counts a real departure, when the page actually goes hidden. A focus flicker can't fake it. If iOS kills the page while you play, it still catches you coming back. Reminders are web push, and the rules for them are written and tested in SQL. Every table has row level security, covered by database tests.</p>
+      </div>
+      <figure class="shots">
+        <div class="phone">
+          <div class="tess tess-grid" aria-label="Tessera's group grid, rebuilt here with a made up group">
+            <div class="tess-head"><b>Group</b><span>Today</span></div>
+            <div class="grid-head"><span></span><span class="face" style="--f:#6aad65">Y</span><span class="face" style="--f:#e8a43c">A</span><span class="face" style="--f:#3f8ee8">B</span></div>
+            <div class="grow"><span>Wordle</span><i class="on" style="--c:#6aad65"></i><i class="on" style="--c:#6aad65"></i><i></i></div>
+            <div class="grow"><span>Spelling Bee</span><i class="on" style="--c:#b5a6ff"></i><i></i><i class="on" style="--c:#b5a6ff"></i></div>
+            <div class="grow"><span>Strands</span><i class="on" style="--c:#85bdb4"></i><i class="on" style="--c:#85bdb4"></i><i class="on" style="--c:#85bdb4"></i></div>
+            <div class="grow"><span>Queens</span><i></i><i class="on" style="--c:#a27be6"></i><i class="on" style="--c:#a27be6"></i></div>
+            <div class="grow"><span>Tango</span><i></i><i></i><i class="on" style="--c:#e8a43c"></i></div>
+            <div class="grow"><span>Zip</span><i class="on" style="--c:#3f8ee8"></i><i class="on" style="--c:#3f8ee8"></i><i></i></div>
+            <div class="grow"><span>Pips</span><i></i><i class="on" style="--c:#e9623e"></i><i></i></div>
+            <div class="grow"><span>Futbol11</span><i></i><i></i><i class="on" style="--c:#2e9e57"></i></div>
+            <div class="grow"><span>The Mini</span><i class="on" style="--c:#f2c14e"></i><i></i><i class="on" style="--c:#f2c14e"></i></div>
+            <div class="tess-foot"><span>Streak: 12 days in a row</span></div>
+          </div>
+        </div>
+        <figcaption>The group grid. I rebuilt it here with a made up group.</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <article class="band b-whistle flip" id="final-whistle">
+    <div class="wrap">
+      <div class="copy">
+        <div class="kit" aria-hidden="true"><i style="background:#004170"></i><i style="background:#da291c"></i><i style="background:#a50044"></i><i style="background:#ffffff"></i></div>
+        <h3>Final Whistle</h3>
+        <p class="meta">Football match predictor · Python, JavaScript, GitHub Actions</p>
+        <p>It predicts home, draw and away chances for the top leagues in ten European countries, plus the Champions League and Europa League. The model uses Elo ratings, recent form and a goals model. The bookmakers' prices sit next to it.</p>
+        <p>I held it to being honest. Every setting was picked on a validation set. On 4,194 matches it never saw, it gets close to the bookmakers but doesn't beat them. The write up says that plainly. It also says which betting strategies lose money. A GitHub Actions job logs a prediction for every fixture four times a day. Each prediction is its own commit, which proves it was made before kickoff. The phone page is password protected, so there's no link.</p>
+      </div>
+      <div class="shots">
+        <div class="phone"><img src="assets/img/final-whistle-accumulator.png" width="390" height="1450" alt="Final Whistle's accumulator page by day: best bets per game and a build one for me target" loading="lazy"></div>
+        <div class="phone"><img src="assets/img/final-whistle-leagues.png" width="390" height="844" alt="Final Whistle's league filter at night" loading="lazy"></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="band b-gild" id="gild">
+    <div class="wrap">
+      <div class="copy">
+        <h3>GILD</h3>
+        <p class="meta">Budget app · React, Capacitor, on my iPhone · <a href="https://gildfinance.vercel.app/">Live app</a> · <a href="https://github.com/felipereis26/gild-finance-dev">Code</a></p>
+        <div class="rule"></div>
+        <p>My budget app. On payday it splits the pay across bills, savings and spending limits. The home screen shows what's safe to spend today. Bank statements import straight in. Repeat charges get flagged as subscriptions. The scan screen turns a payment screenshot into a transaction I check before saving.</p>
+        <p>Nothing leaves the phone. There's no server, no account and no bank connection. iOS can clear a web view's storage on its own. The iPhone app keeps a copy in its own files and loads it back before it starts.</p>
+      </div>
+      <div class="shots">
+        <div class="phone"><img src="gild-scan.jpg" width="560" height="616" alt="GILD's scan screen: upload a payment screenshot and the text is read on the phone, nothing sent anywhere" loading="lazy"></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="band b-tripsy flip" id="tripsy">
+    <div class="wrap">
+      <div class="copy">
+        <div class="tape" aria-hidden="true"><i style="background:#ea82a3"></i><i style="background:#74c7a6"></i><i style="background:#f0c665"></i></div>
+        <h3>Tripsy</h3>
+        <p class="meta">Trip planner · HTML, CSS, JavaScript, Vercel functions, an iPhone app</p>
+        <p>A trip planner my partner and I actually use. Each trip is its own page. The home page works out our leave days and moves trips from upcoming to past by itself. Adding a trip goes through a form and a small serverless function. The function commits the new page straight to GitHub, and the site redeploys.</p>
+        <p>The GitHub token can only touch that one repo and never reaches the browser. We each get a packing list per trip. Two phones saving at once can't overwrite each other. The iPhone app has every trip offline. GILD reads our trip costs through a read only feed. The site holds our real travel dates, so it's behind a login and there's no link.</p>
+      </div>
+      <div class="shots">
+        <div class="phone"><img src="tripsy-form.jpg" width="560" height="884" alt="Tripsy's add a trip form, scrapbook style: destination, dates, leave days, cost and one line on why" loading="lazy"></div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<section class="wrap sec" id="everything" aria-labelledby="everything-h">
+  <div class="sec-head">
+    <h2 id="everything-h">Everything else</h2>
+    <p>The smaller things, one line each.</p>
   </div>
-
-  <div class="card" id="automation-hub">
-    <h3>Service desk automation hub</h3>
-    <div class="meta">Google Apps Script web app, JavaScript/HTML/CSS, Jira and Slack REST APIs, GitHub</div>
-    <p class="result">The desk’s morning triage, ticket QA and team numbers in one app. Dozens of versioned releases.</p>
-    <p><strong>Problem:</strong> the desk's daily rhythm, morning triage, ticket quality checks, team metrics, lived in a dozen manual places.</p>
-    <p><strong>Built:</strong> an internal web app that brings it together: a morning triage queue, ticket QA, and live dashboards with team resolution metrics. Dozens of versioned releases, code on GitHub behind protected branches with a build and verification pipeline.</p>
-    <p><strong>Rollout:</strong> staged. A few techs had to use it on real working days before it went any wider, I worked through their feedback as it came in, and I presented it to the team at a company offsite.</p>
-    <p><strong>Next:</strong> the desk runs a stable build, frozen on purpose. New work, like an AI lab where every suggestion is measured against what the tech actually did, and an on call page fed by live incidents, runs in a Docker sandbox first, ahead of hosting on AWS.</p>
+  <div class="ledger">
+    <div class="entry"><span class="yr num">2026</span><div><b>TicketFixer</b><span>A ticket workbench for the desk. It fixes a ticket's type and fields. It finds how the same request was handled before, out of 14,498 resolved tickets. It's had 33 releases and is in the company's Claude plugin catalogue.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>SLA watch</b><span>Watches the first response clock on a queue. It drafts a reply as soon as a clock starts. A breached ticket nobody's answered stays at the top. Posting always asks first.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Form Finder</b><span>Tells you how to get access to any of 203 internal apps. It shows the form, the approver and what to put in it. On real past requests, the right app is in the top three 96.5% of the time.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Access request triage</b><span>Reads incoming access tickets and checks them against the access guides. It drafts the right redirect or approval route.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Team numbers dashboard</b><span>Shows resolved totals, per person averages and daily targets. The numbers come from live Jira queries.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>NATS role recommender</b><span>Recommends the right production access role from what's on the ticket. It works from a routing matrix we keep up to date.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Weekly handover check</b><span>Checks the P1 incident handover doc every week and reminds the right call leaders.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Late replies check</b><span>Catches customer replies on tickets that are already resolved. Those replies still get answered.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>New hire location check</b><span>Checks every new starter once a week. Laptops then ship to the right office in Ireland, NI or the UK.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Missing priorities sweep</b><span>Finds resolved tickets that never got a priority and sets one. Each fix carries its reasoning.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Mentoring</b><span>Planned the first weeks for a new analyst on the London desk. It has quizzes, a ticket tracker and QA scoring based on the desk's own scorecard.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Training report</b><span>The new hire training report, rebuilt with HR course tracking.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Onboarding comparison</b><span>Compared the Denver and London new hire training and lined up the differences.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Leeds office audit</b><span>Checked a twelve desk build out on site. That covered meeting rooms, booking tablets, screens and power.</span></div></div>
+    <div class="entry"><span class="yr num">2025–26</span><div><b>Guides and runbooks</b><span>19 Confluence pages. They cover office runbooks, WiFi guides and moving Claude to a new Mac.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Google Cloud 2 step verification</b><span>Got the desk ready for a mandatory security rollout before its deadline.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Executive laptop moves</b><span>Moved senior staff to new laptops. I arranged each move through their assistants.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Diploma in Cybersecurity</b><span>UCD Professional Academy. I did it alongside the full time job and passed with Distinction.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>Lunch and learn</b><span>A talk to the desk on these tools. I demoed the ticket workbench live.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b><a href="https://github.com/FelipeReis26/dev-hub">Dev hub</a></b><span>A local dashboard of everything I'm building and the Claude sessions in each. It also holds an idea backlog and a scaffolder for new projects.</span></div></div>
+    <div class="entry"><span class="yr num">2026</span><div><b>This site</b><span>Built by hand with no framework. It's hosted on GitHub Pages.</span></div></div>
   </div>
+</section>
 
-  <div class="card" id="knowledge-base">
-    <h3>Knowledge base overhaul</h3>
-    <div class="meta">Confluence, KCS methodology, Jira automation · co-lead, in progress</div>
-    <p class="result">Roughly 700 pages inventoried, 100+ reviewed by hand, standards being set.</p>
-    <p><strong>Problem:</strong> a roughly 700 page service desk knowledge base with no ownership, no review cycle and years of drift.</p>
-    <p><strong>Doing:</strong> running a KCS aligned overhaul with a colleague: full inventory, accuracy audit (I personally reviewed over 100 internal pages), a metadata template with named owners, and a proposed 90 day review cycle. I've also written 19 internal guides and runbooks myself.</p>
+<section class="wrap sec closing">
+  <div class="about">
+    <h2 id="about">About</h2>
+    <p>In the last year I resolved around 1,400 tickets at a 98% resolution rate. Along the way I started automating the repetitive parts with AI. I have a BSc in Computing and a UCD Diploma in Cybersecurity. I got a Distinction in each.</p>
+    <ul>
+      <li>I was born the year the PlayStation 2 came out. I grew up on it.</li>
+      <li>Portuguese is my first language. I grew up in Dublin.</li>
+      <li>My partner and I plan trips in so much detail that I built an app for it.</li>
+      <li>Formula 1 on Sundays. Fantasy Premier League all season. A crossword most days.</li>
+    </ul>
   </div>
-
-  <div class="card" id="automation-fleet">
-    <h3>Scheduled automation fleet</h3>
-    <div class="meta">Anthropic Claude, AI agent workflows, Jira/Slack/Confluence APIs</div>
-    <p class="result">Around 14 checks that run whether anyone remembers them or not.</p>
-    <p><strong>Problem:</strong> the small quality checks that keep a desk healthy, handover accuracy, customer replies landing after a ticket is resolved, missing priorities, only happen when someone remembers.</p>
-    <p><strong>Built:</strong> around 14 scheduled automations that remember instead: a weekly handover quality check with reminders to the right people, a post resolution replies sweep, a sweep for missing priorities, a matcher that checks new tickets against 14,498 resolved ones to surface precedents, and more. Two of them were packaged and shared with the wider desk through a plugin catalogue set up with our Platform Engineering team. In November I folded ten of them into one weekday morning brief, so Slack only gets the things that need someone right now.</p>
+  <div>
+    <h2 id="contact">Raise a ticket</h2>
+    <form class="ticket" id="ticketForm" novalidate>
+      <div class="row">
+        <div class="field"><label for="tSubject">Subject</label><input id="tSubject" type="text" placeholder="What's it about?" autocomplete="off"></div>
+        <div class="field"><label for="tPriority">Priority</label><select id="tPriority"><option>Low</option><option selected>Medium</option><option>High</option></select></div>
+      </div>
+      <div class="field"><label for="tBody">Description</label><textarea id="tBody" placeholder="Your message"></textarea></div>
+      <div class="send">
+        <button class="btn" type="submit">Raise ticket</button>
+        <p class="err" id="tErr" role="alert" hidden>Add a subject and a description first.</p>
+      </div>
+      <p class="sla">This opens an email in your own mail app. Nothing is stored here. Current SLA: usually same day.</p>
+    </form>
   </div>
-</div>
-
-  <h2>Personal projects</h2>
-
-  <div class="colwrap">
-<div class="card" id="tripsy">
-    <h3><a class="repo" href="https://github.com/felipereis26/trip-planner">Tripsy</a></h3>
-    <div class="meta">Static site + serverless function · HTML, CSS, JavaScript, Vercel</div>
-    <img class="shot" src="tripsy-form.jpg" width="560" height="884" loading="lazy" alt="The add-a-trip form, scrapbook style: destination, dates, leave days, cost, and one line on why">
-    <p>A trip planning site my partner and I actually use. Each trip is its own page, and the home page computes leave-day totals and moves trips from upcoming to past automatically based on dates, no backend state to forget about.</p>
-    <p>The interesting part is the add-a-trip flow: a form posts to a small serverless function that commits a new page straight into the GitHub repo, which triggers auto-deploy. The function uses a fine-grained GitHub token scoped to one repo with contents-only permissions, held as a server-side environment variable so it never reaches the browser. It's a small project, but the README covers setup end to end, so someone else could run it without me.</p>
-    <p>Each trip now has a packing list for each of us. Ticking an item saves through a second function that replaces only that person's part of the list, so two phones saving at once never overwrite each other, and the deploy skips commits that only touch packing lists. There's also an iPhone app with an offline copy of every trip, and a small read only feed, behind its own token, that GILD reads so trip costs show up in my budget.</p>
-    <p>The site holds our real travel dates, so the deployment is gated behind a shared password: a small Vercel middleware checks for a valid session on every path and sends anyone without one to a login page before anything is served. That's why there's no live link here.</p>
-    <div class="chips"><span class="chip">JavaScript</span><span class="chip">Serverless</span><span class="chip">Auth middleware</span><span class="chip">Least-privilege tokens</span></div>
-  </div>
-
-  <div class="card" id="gild">
-    <h3><a class="repo" href="https://github.com/felipereis26/gild-finance-dev">GILD finance tracker</a> &nbsp;<a class="repo" href="https://gildfinance.vercel.app/" style="font-size:.85rem">live app ↗</a></h3>
-    <div class="meta">Mobile app · React, Capacitor, runs on my iPhone · best opened on a phone</div>
-    <img class="shot" src="gild-scan.jpg" width="560" height="616" loading="lazy" alt="GILD's scan screen: upload a payment screenshot and the text is read on the device, nothing sent anywhere">
-    <p>A mobile-first budget and bill tracker built in React and wrapped with Capacitor into a real iPhone app. It plans each pay period: on payday it splits the pay across bills, savings and spending limits, and the dashboard shows what's safe to spend today. Bank statements import straight in, repeat charges get flagged as subscriptions, and a scan screen turns a payment screenshot into a transaction to review before saving.</p>
-    <p>Balances are tracked per account and reconciled against each bank's own statement. A transfer between two of my accounts is a single row that knows both ends, so it can never be counted twice.</p>
-    <p>Nothing leaves the phone: no server, no account, no bank connection. All storage lives behind one module, and on the iPhone it also keeps a copy in the app's own files, because iOS can clear a web view's storage on its own. That copy is loaded back before the app starts and rewritten after every change.</p>
-    <div class="chips"><span class="chip">React</span><span class="chip">Capacitor</span><span class="chip">On-device storage</span><span class="chip">Statement import</span></div>
-  </div>
-
-  <div class="card" id="tessera">
-    <h3>Tessera &nbsp;<a class="repo" href="https://thetessera.vercel.app/" style="font-size:.85rem">live app ↗</a></h3>
-    <div class="meta">Web app + iPhone app · React, TypeScript, Supabase, Vercel, Capacitor · best opened on a phone</div>
-    <p>A daily checklist for the puzzle games my friends and I play. Each game is a tile: tap it to open the game, and when you come back after long enough to have played, the tile ticks itself, with an undo in case you didn't. A group shares one board, so you can see who's done what today, with streaks and a calendar for each game.</p>
-    <p>The fiddly part was the tick. Only a real departure counts, the page actually going hidden, so a focus flicker or the handoff between apps can't fake a return, and if iOS unloads the page while you play, the return is still caught when it reopens.</p>
-    <p>Reminders are web push: the rules for who gets what live in SQL with their own tests, an Edge Function sends them every minute, and the encryption is checked against the spec. Sign up needs an invite, and row level security on every table is covered by database tests.</p>
-    <div class="chips"><span class="chip">TypeScript</span><span class="chip">Supabase</span><span class="chip">Web Push</span><span class="chip">Row level security</span></div>
-  </div>
-
-  <div class="card" id="final-whistle">
-    <h3>Final Whistle</h3>
-    <div class="meta">Football match predictor · Python, JavaScript, GitHub Actions</div>
-    <p>A football predictor for the top divisions of ten European leagues, plus Champions League and Europa League games. It gives home, draw and away chances from Elo ratings, recent form and a goals model, and puts them next to the bookmakers’ prices.</p>
-    <p>The rule I held it to was being honest about the results. Every setting was chosen on a validation set, and on 4,194 test matches it never saw, the model comes close to the bookmakers but doesn’t beat them. The write up says that plainly, along with which betting strategies lose money.</p>
-    <p>A GitHub Actions job runs four times a day, logs a prediction for every upcoming fixture with the odds at that moment, and scores the finished matches. Every addition is its own commit, so the record shows each prediction existed before kickoff. Tests check the page’s JavaScript copy of the model against the Python one. The phone page is password protected, so there’s no link here.</p>
-    <div class="chips"><span class="chip">Python</span><span class="chip">Machine learning</span><span class="chip">GitHub Actions</span><span class="chip">Testing</span></div>
-  </div>
-</div>
-
-
-  <h2 id="everything">Everything else</h2>
-  <p class="note">The case studies above are the long versions. This is everything else, one line each.</p>
-<div class="archwrap">
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">TicketFixer</span> <span class="ds">— a ticket quality workbench for the desk: repairs types and fields on Jira tickets and matches each one against 14,498 resolved cases for precedent, with restricted tickets removed and secrets stripped first. 33 versioned releases, published in the company’s Claude plugin catalogue in October.</span></span><span class="tags"><span class="tg">AI</span><span class="tg">ITSM</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">SLA first response watch</span> <span class="ds">— watches the first response clock on a queue, drafts a reply as soon as a clock starts, and keeps any breached ticket nobody has answered at the top until someone does. Posting always asks first.</span></span><span class="tags"><span class="tg">AI</span><span class="tg">ITSM</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Form Finder</span> <span class="ds">— look up how to get access to any of 203 internal apps: the form, who approves, and what to put in the request. On past real requests the right app comes up in the top three 96.5% of the time.</span></span><span class="tags"><span class="tg">identity</span><span class="tg">ITSM</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Access request triage assistant</span> <span class="ds">— reads incoming access tickets, checks them against the documented access guides and drafts the correct redirect or approval route.</span></span><span class="tags"><span class="tg">AI</span><span class="tg">identity</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Live team metrics dashboard</span> <span class="ds">— resolved totals, per analyst averages and daily targets, fed by live Jira queries.</span></span><span class="tags"><span class="tg">dashboards</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">NATS role recommender</span> <span class="ds">— recommends the correct production access role from a ticket’s own fields, against a maintained routing matrix.</span></span><span class="tags"><span class="tg">identity</span><span class="tg">AI</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Weekly handover QA</span> <span class="ds">— an automated quality check on the P1 incident handover doc, with reminders sent to the right call leaders.</span></span><span class="tags"><span class="tg">operations</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Post resolution replies check</span> <span class="ds">— catches customer replies that land after a ticket has been resolved, so late replies still get answered.</span></span><span class="tags"><span class="tg">operations</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">New hire location screener</span> <span class="ds">— a weekly sweep of every incoming hire to route laptop shipping correctly across Ireland, NI and the UK.</span></span><span class="tags"><span class="tg">onboarding</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Priority hygiene sweep</span> <span class="ds">— finds resolved tickets that never got a priority and fixes them with reasoning attached.</span></span><span class="tags"><span class="tg">operations</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Mentoring programme</span> <span class="ds">— structured first weeks for a new analyst on the London desk: scored quizzes, a ticket tracker, and QA scoring adapted from the desk’s official scorecard.</span></span><span class="tags"><span class="tg">people</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Training template redesign</span> <span class="ds">— the new hire training report rebuilt with HR course tracking.</span></span><span class="tags"><span class="tg">onboarding</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Onboarding gap analysis</span> <span class="ds">— compared the Denver and London new hire training programmes and standardised the differences.</span></span><span class="tags"><span class="tg">onboarding</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Leeds office expansion audit</span> <span class="ds">— onsite verification of a twelve desk build out: meeting rooms, booking tablets, displays, power.</span></span><span class="tags"><span class="tg">office IT</span></span></div>
-  <div class="arch-row"><span class="yr">2025–26</span><span><span class="nm">Internal guides and runbooks</span> <span class="ds">— 19 Confluence pages, from office runbooks and WiFi guides to the desk’s guide for moving Claude to a new Mac.</span></span><span class="tags"><span class="tg">documentation</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">GCP 2 step verification prep</span> <span class="ds">— readied the desk for a mandatory Google Cloud security rollout ahead of its deadline.</span></span><span class="tags"><span class="tg">security</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Executive laptop migrations</span> <span class="ds">— coordinated senior staff device migrations through their assistants, scheduled around their diaries.</span></span><span class="tags"><span class="tg">operations</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Diploma in Cybersecurity</span> <span class="ds">— UCD Professional Academy, completed alongside the full time role. Passed with Distinction.</span></span><span class="tags"><span class="tg">study</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">Lunch and learn</span> <span class="ds">— a talk to the desk on the tools above, with a live demo of the ticket workbench on a real ticket and a few made up ones.</span></span><span class="tags"><span class="tg">people</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><a class="nm" href="https://github.com/FelipeReis26/dev-hub">Dev hub</a> <span class="ds">— a local dashboard over every project I’m building and the Claude sessions in each, with an idea backlog and a scaffolder that sets up a new project the same way every time.</span></span><span class="tags"><span class="tg">tooling</span></span></div>
-  <div class="arch-row"><span class="yr">2026</span><span><span class="nm">This site</span> <span class="ds">— one hand written HTML file on GitHub Pages: the case studies, the diagrams, the CV and this form, no framework and no build step.</span></span><span class="tags"><span class="tg">web</span></span></div>
-</div>
-
-<div class="duo">
-<div>
-  <h2 id="about">About</h2>
-  <p>Away from the queue:</p>
-  <ul class="facts">
-    <li>Born the same year the PlayStation 2 came out, and grew up on it.</li>
-    <li>Native Portuguese speaker, raised in Dublin.</li>
-    <li>I plan trips with my partner thoroughly enough that I built an app for it.</li>
-    <li>Formula 1 on Sundays, fantasy Premier League all season, a crossword most days.</li>
-  </ul>
-
-</div>
-<div>
-  <h2 id="contact">Raise a ticket</h2>
-  <p class="note">Messages here open as an email in your own mail app. Nothing is stored on this site.</p>
-  <form class="ticket" id="ticketForm">
-    <label for="tSubject">Subject</label>
-    <input id="tSubject" type="text" placeholder="What's it about?">
-    <label for="tPriority">Priority</label>
-    <select id="tPriority"><option>Low</option><option selected>Medium</option><option>High</option></select>
-    <label for="tBody">Description</label>
-    <textarea id="tBody" placeholder="Your message."></textarea>
-    <button type="submit">Raise ticket</button>
-    <p class="err" id="tErr">Add a subject and a description first.</p>
-    <p class="note">Current SLA: usually same day.</p>
-  </form>
-
-</div>
-</div>
-  <footer>
-    Felipe Reis · Dublin, Ireland · <a class="repo" href="mailto:Felipe26lpe@gmail.com">Felipe26lpe@gmail.com</a>
-  </footer>
+</section>
 </main>
-<script>
-document.getElementById('ticketForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  var sub = document.getElementById('tSubject').value.trim();
-  var pri = document.getElementById('tPriority').value;
-  var body = document.getElementById('tBody').value.trim();
-  var err = document.getElementById('tErr');
-  if(!sub || !body){ err.style.display = 'block'; return; }
-  err.style.display = 'none';
-  location.href = 'mailto:Felipe26lpe@gmail.com?subject=' + encodeURIComponent('[' + pri + '] ' + sub) + '&body=' + encodeURIComponent(body);
-});
-</script>
+
+<footer class="wrap">
+  <span>Felipe Reis · Dublin, Ireland</span>
+  <a href="mailto:Felipe26lpe@gmail.com">Felipe26lpe@gmail.com</a>
+</footer>
+<script src="assets/site.js"></script>
 </body>
 </html>
