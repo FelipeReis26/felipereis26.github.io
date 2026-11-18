@@ -19,7 +19,7 @@ body{margin:0;background:var(--ground);color:var(--ink);font:400 17px/1.6 var(--
 ::selection{background:var(--ink);color:var(--ground)}
 a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.22em;text-decoration-color:color-mix(in srgb,currentColor 40%,transparent)}
 a:hover{text-decoration-color:currentColor}
-:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
 img{display:block;max-width:100%;height:auto}
 h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.025em;line-height:1.02;margin:0;text-wrap:balance}
 p{margin:0 0 .9em;max-width:66ch;text-wrap:pretty}
@@ -30,7 +30,7 @@ p:last-child{margin-bottom:0}
 /* ---------- top ---------- */
 .top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:22px;padding-bottom:22px}
 .top .me{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.01em;text-decoration:none}
-.top nav{display:flex;gap:clamp(14px,2.2vw,28px);font-size:15px;color:var(--ink-2)}
+.top nav{display:flex;gap:clamp(14px,2.2vw,28px);font-size:14px;color:var(--ink-2)}
 .top nav a{text-decoration:none}
 .top nav a:hover{color:var(--ink)}
 @media (max-width:720px){ .top nav .opt{display:none} }
@@ -41,7 +41,7 @@ p:last-child{margin-bottom:0}
 .hero h1{font-size:clamp(56px,8.2vw,112px);font-weight:800;letter-spacing:-.04em;line-height:.92;font-variation-settings:"wdth" 88}
 .hero .line{font-size:clamp(19px,1.6vw,22px);line-height:1.5;color:var(--ink-2);margin:26px 0 30px;max-width:30ch}
 .hero .line b{color:var(--ink);font-weight:600}
-.acts{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;font-size:16px}
+.acts{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;font-size:17px}
 .btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border-radius:999px;background:var(--ink);color:var(--ground);text-decoration:none;font-weight:600;transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s}
 .btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px -10px rgba(0,0,0,.45)}
 .btn svg{width:16px;height:16px}
@@ -53,14 +53,13 @@ p:last-child{margin-bottom:0}
 .screen:nth-child(1){margin-top:0;z-index:3}
 .screen:nth-child(2){margin-top:46px;z-index:2}
 .screen:nth-child(3){margin-top:12px;z-index:1}
-.phone{aspect-ratio:390/844;border-radius:34px;overflow:hidden;background:#000;border:1px solid rgba(0,0,0,.12);
-  box-shadow:0 30px 60px -28px rgba(10,12,30,.45),0 8px 20px -12px rgba(10,12,30,.25)}
+.phone{aspect-ratio:390/844;border-radius:34px;overflow:hidden;background:#17171b;
+  box-shadow:0 18px 36px -20px rgba(10,12,30,.5),0 4px 10px -6px rgba(10,12,30,.3)}
 .phone img{width:100%;height:100%;object-fit:cover;object-position:top}
 .phone.shot-fit img{object-fit:contain}
 .screen-gild{margin-top:120px!important}
 .screen figcaption{font-size:14px;line-height:1.4;color:var(--ink-3);margin-top:14px;padding-left:6px}
-.screen figcaption b{display:block;color:var(--ink);font-weight:600;font-size:15px}
-@media (prefers-color-scheme: dark){ .phone{border-color:rgba(255,255,255,.12)} }
+.screen figcaption b{display:block;color:var(--ink);font-weight:600;font-size:14px}
 
 /* the working Tessera board */
 .tess{height:100%;background:#17171b;color:#ecebe6;padding:22px 16px 16px;display:flex;flex-direction:column;font-family:var(--text)}
@@ -87,7 +86,7 @@ p:last-child{margin-bottom:0}
 .face{width:22px;height:22px;flex:0 0 22px;border-radius:50%;background:var(--f);color:#141416;font-size:11.5px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
 .tess-foot{margin-top:auto;font-size:12px;color:#a7a6ad;min-height:38px;display:flex;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid #2a2a30;padding-top:10px}
 .tess-foot button{all:unset;cursor:pointer;color:#ecebe6;font-weight:600;text-decoration:underline;text-underline-offset:3px}
-.tess-foot button:focus-visible{outline:2px solid #fff;outline-offset:2px;border-radius:3px}
+.tess-foot button:focus-visible{outline:2px solid #ecebe6;outline-offset:2px;border-radius:2px}
 
 @media (max-width:1040px){
   .hero{grid-template-columns:minmax(0,1fr)}
@@ -103,7 +102,7 @@ p:last-child{margin-bottom:0}
 #work .job:first-of-type{padding-top:clamp(16px,1.6vw,22px)}
 .sec-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,64px);align-items:end;margin-bottom:clamp(28px,4vw,48px)}
 .sec-head h2{font-size:clamp(40px,5.4vw,72px);font-weight:800;letter-spacing:-.035em}
-.sec-head p{color:var(--ink-2);font-size:18px}
+.sec-head p{color:var(--ink-2);font-size:clamp(19px,1.6vw,22px);line-height:1.5}
 @media (max-width:860px){ .sec-head{grid-template-columns:minmax(0,1fr);gap:16px} }
 
 /* work entries */
@@ -133,7 +132,7 @@ p:last-child{margin-bottom:0}
 .band .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(28px,5vw,80px);align-items:center}
 .band.flip .copy{order:2}
 .band h3{font-size:clamp(44px,5.6vw,80px);font-weight:800;letter-spacing:-.035em;line-height:.95}
-.band .meta{margin:16px 0 26px;font-size:15px;opacity:.78}
+.band .meta{margin:16px 0 26px;font-size:14px;opacity:.78}
 .band .meta a{font-weight:600;opacity:1}
 .band p{font-size:17.5px}
 .band .shots{display:flex;gap:18px;justify-content:center;align-items:flex-start}
@@ -154,8 +153,8 @@ p:last-child{margin-bottom:0}
 .tess-grid .grid-head,.tess-grid .grow{display:grid;grid-template-columns:minmax(0,1fr) repeat(3,30px);gap:8px;align-items:center}
 .tess-grid .grid-head{margin:6px 0 8px}
 .tess-grid .grid-head .face{justify-self:center}
-.tess-grid .grow{padding:5px 0;border-top:1px solid #26262c;font-size:12.5px}
-.tess-grid .grow i{width:24px;height:24px;border-radius:7px;border:1.5px solid #34343b;justify-self:center}
+.tess-grid .grow{padding:5px 0;border-top:1px solid #2a2a30;font-size:12px}
+.tess-grid .grow i{width:24px;height:24px;border-radius:5px;border:1.5px solid #2a2a30;justify-self:center}
 .tess-grid .grow i.on{background:var(--c);border-color:var(--c)}
 .b-tessera .phone{border-color:#2c2c33}
 .b-tessera h3{font-family:"Pixelify Sans",var(--display);font-weight:600;letter-spacing:.01em}
@@ -225,6 +224,7 @@ footer{padding-top:clamp(56px,8vw,96px);padding-bottom:40px;color:var(--ink-3);f
   .band{box-shadow:inset 0 1px 0 rgba(255,255,255,.1),inset 0 -1px 0 rgba(255,255,255,.1)}
   .b-tessera{background:#1d1d23}
   .b-gild{background:#16171b}
+  .phone{outline:1px solid var(--line);outline-offset:-1px}
 }
 
 .b-tessera .shots .phone{flex:none;width:min(100%,280px);aspect-ratio:auto}
